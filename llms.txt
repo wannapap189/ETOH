@@ -1,6 +1,6 @@
 # Etohcols — implementation brief
 
-> Private developer and coding-assistant handoff for the bilingual v24 website in `wannapap189/ETOH`. This file describes requirements; it does not configure routes, redirects, DNS or search indexing. Repository sharing does not authorize or perform website publication.
+> Public developer and coding-assistant handoff for the bilingual v24 website in `wannapap189/ETOH`. This file describes requirements; it does not configure routes, redirects, DNS or search indexing. Repository sharing does not authorize or perform website publication.
 
 ## Read first
 
@@ -52,7 +52,7 @@
 
 ## Packaging and release boundary
 
-- Share a reviewed private repository. `.gitignore` is not a confidentiality or deployment boundary.
+- This repository is public at the owner's request. Keep confidential data and original certificates out of every commit. `.gitignore` is not a confidentiality or deployment boundary.
 - The standalone package uses `content/legacy-content.json` for reviewed legacy content instead of reading original HTML archives at runtime. Raw archives, image-generation provenance and private document originals are excluded. Do not reintroduce those materials as a runtime requirement or public content.
 - Do not publicly serve source, internal `content/` data, `seo/`, reports, certificate originals, `/seo-audit/` or `/seo-inventory.csv`. Generic static hosting does not inherit `server.mjs` restrictions, including its document-download block.
 - Resolve the migration contract's pending release decisions. Back up the old site and data, preserve active DNS/email records, test the candidate server before cutover, and agree rollback ownership and triggers.

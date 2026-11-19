@@ -1,6 +1,6 @@
 # ETOH — Etohcols website handoff
 
-Thai and English B2B ethanol website prototype for the team implementing the production site. The private repository is `wannapap189/ETOH`. It includes the approved visual direction, product guidance, business-application content, quotation-request flows and an SEO migration baseline. This standalone package is source for a local preview, not a production server or a WordPress theme. Sharing the repository does not publish the website.
+Thai and English B2B ethanol website prototype for the team implementing the production site. The public repository is `wannapap189/ETOH`. It includes the approved visual direction, product guidance, business-application content, quotation-request flows and an SEO migration baseline. This standalone package is source for a local preview, not a production server or a WordPress theme. Sharing the repository does not publish the website.
 
 ## Run locally
 

@@ -1,5 +1,5 @@
 ETOHCOLS — ข้อกำหนดรักษา URL สำหรับทีมสร้างเว็บใหม่และย้ายเซิร์ฟเวอร์
-อัปเดต 19 พฤศจิกายน 2569 | ชุดส่งมอบ ETOH สำหรับ GitHub ส่วนตัว ยังไม่ได้ deploy หรือเปลี่ยน DNS
+อัปเดต 19 พฤศจิกายน 2569 | ชุดส่งมอบ ETOH สำหรับ GitHub สาธารณะ ยังไม่ได้ deploy หรือเปลี่ยน DNS
 
 1. เป้าหมายที่ทีมต้องส่งมอบ
 ใช้ https://etohcols.com และ paths เดิม แม้เปลี่ยน CMS/framework/hosting
@@ -74,7 +74,7 @@ HTTPS/host variants, firewall/Googlebot, backend, ความลับใน bu
 คง backup ตามนโยบายทีม การคง URL ไม่รับประกันว่าอันดับจะไม่ผันผวน
 
 8. GitHub และไฟล์สาธารณะ
-ส่งผ่าน repository ส่วนตัวที่ผ่านการตรวจเนื้อหา ไม่อัปโหลดทั้ง project/archive บน D โดยอัตโนมัติ
+เจ้าของอนุญาตให้ repository นี้เป็น Public แชร์เฉพาะชุดส่งมอบที่ตรวจแล้ว ไม่อัปโหลดทั้ง project/archive บน D โดยอัตโนมัติ
 .gitignore ไม่ใช่การป้องกันข้อมูลลับ และไม่ได้กำหนดว่าไฟล์ใดจะถูก deploy
 ชุดส่งมอบนี้อ่าน content/legacy-content.json แทน seo/original-html ตอน render; ทีมต้องย้ายเนื้อหานี้เข้า CMS/build โดยคง URL เดิม
 ไม่ได้รวม archive/provenance หรือต้นฉบับเอกสารลับไว้ใน repository อย่านำกลับมาเป็นส่วนหนึ่งของเว็บสาธารณะ

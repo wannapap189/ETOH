@@ -1,0 +1,69 @@
+# Etohcols — implementation brief
+
+> Private developer and coding-assistant handoff for the bilingual v24 website in `wannapap189/ETOH`. This file describes requirements; it does not configure routes, redirects, DNS or search indexing. Repository sharing does not authorize or perform website publication.
+
+## Read first
+
+- [README](README.md): local setup, current scope and source map.
+- [Server migration requirements](seo/SERVER-MIGRATION.txt): cutover, verification and rollback.
+- [URL acceptance contract](seo/migration-contract.json): required statuses, redirects and unresolved release decisions.
+- [Original URL/metadata baseline](seo/url-inventory.json): preserve as evidence; do not rewrite it to make checks pass.
+- [HTTP migration checker](scripts/check-migration.mjs).
+- [Localization checker](scripts/check-localization-v24.mjs).
+
+## Product and commercial truth
+
+- Etohcols supplies ethanol to businesses. Preserve the emphasis on product selection, quality information and coordinated delivery. Do not make importing the main marketing message.
+- PHARMOL is the undenatured family: 95%, 96% and 99.9%. PHARMOL 70% and 75% are unavailable; do not recreate them.
+- ETOH is the denatured family: 95%, 96% and 99.9%, plus planned 70% and 75% formulations. Planned does not mean ready for sale.
+- Confirm actual specifications, denaturants, grade, lot documents and application suitability. Neither a percentage nor a brand name establishes food, pharmaceutical, analytical or other specialized approval.
+- The 1 / 5 / 20 L range and repacking system are in preparation. Show 1 / 5 L as translucent jerrycans, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
+- No public prices. `/cart/` and `/checkout/` support quotation requests, not payment or order confirmation. Samples are free, with shipping assessed by destination and confirmed before dispatch.
+- OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
+
+## User experience and content
+
+- Retain the readable green–orange visual system and responsive layout.
+- `/applications/` contains 52 business scenarios across 11 groups, with a small-business filter covering 29 entries. Preserve individual detail URLs and the original eight industry categories.
+- Business guidance explains ethanol's role, concrete applications, selection checks and purchasing considerations. Product links are candidates for review, not automatic suitability endorsements. Inquiry-only cases must not receive inferred SKU recommendations.
+- Use distinct visual subjects within each group. Business imagery is illustrative and must not be presented as evidence of actual customer sites or projects.
+- Actual certificates are available only from staff. Public pages explain document types using illustrations. Do not publish certificate originals, supplier/manufacturer identities, customer information or internal business plans.
+- MUKU remains a separate brand. Do not redirect Etohcols product or SEO pages to MUKU as part of this work.
+
+## Architecture and language
+
+- Run with Node.js 20+: `node server.mjs`. No dependencies or build are required for the preview. It binds to loopback on port `4186` by default; the `PORT` environment variable can select another port.
+- `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs`.
+- `application-catalog-v17.mjs` combines application data, expansion and healthcare modules. `applications-v17.mjs` renders the directory and detail pages.
+- Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 105 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
+- Language switching preserves page, query and anchor. Preserve canonical and `th`/`en`/`x-default` alternate relationships. Production still needs actual routing and sitemap configuration.
+- Translate visible labels, metadata, alt text and dynamic interactions. Keep product IDs, explicit select values and the shared `etohcols-cart-v1` storage format stable. Preserve user-entered text in summaries.
+- Forms currently generate copyable requests in-browser only. There is no lead submission, CRM, inventory reservation, payment processing or order backend. Integrate and test the chosen backend before claiming those capabilities.
+
+## Preserve URLs when changing servers
+
+- Keep canonical origin `https://etohcols.com` and existing Thai public paths, including trailing slashes. A hosting or framework change does not require a URL change.
+- The baseline covers 33 old sitemap URLs, not all historical URLs or verified rankings: 32 retained HTTP 200 pages and `/product/pharmol-70/` → `/undenatured-alcohol/` with HTTP 301. `/product/pharmol-75/` is an additional compatibility redirect.
+- Implement redirects on the new server, preserve relevant deep links and refreshes, and return genuine 404/410 responses for missing content. Do not send unknown paths to an HTTP 200 homepage.
+- Preserve accurate original metadata and article intent. The three original article bodies/H1 were revised in the prototype and need editorial/search-intent review. Do not repeat inaccurate legacy claims merely to match metadata.
+- Expand the URL/media inventory from the CMS, logs, backlinks and owner-controlled Search Console data. Retain approved old media URLs or define explicit mappings. Confidential documents must not be restored publicly for SEO.
+- Preview has HTML and HTTP `noindex` plus a root robots block. Keep that protection on preview; create separate production configuration for approved indexable pages, canonical URLs, sitemaps and HTTPS.
+- Preserve Google verification or validate an owner-controlled replacement. A copied token does not prove account access. Separate LINE/phone clicks and submitted requests from actual enquiries or sales in measurement.
+
+## Packaging and release boundary
+
+- Share a reviewed private repository. `.gitignore` is not a confidentiality or deployment boundary.
+- The standalone package uses `content/legacy-content.json` for reviewed legacy content instead of reading original HTML archives at runtime. Raw archives, image-generation provenance and private document originals are excluded. Do not reintroduce those materials as a runtime requirement or public content.
+- Do not publicly serve source, internal `content/` data, `seo/`, reports, certificate originals, `/seo-audit/` or `/seo-inventory.csv`. Generic static hosting does not inherit `server.mjs` restrictions, including its document-download block.
+- Resolve the migration contract's pending release decisions. Back up the old site and data, preserve active DNS/email records, test the candidate server before cutover, and agree rollback ownership and triggers.
+
+## Required checks
+
+```sh
+node scripts/check.mjs
+node scripts/check-localization-v24.mjs
+node scripts/check-migration.mjs --base-url http://127.0.0.1:4186 --mode preview
+node scripts/check-migration.mjs --base-url https://YOUR-CANDIDATE-HOST --mode production
+```
+
+Replace the candidate host with the team's controlled test origin. These commands check; they do not deploy. Keep staging access controlled and keep production canonicals at the public origin. The preview is expected to fail production indexing checks; do not remove its protection to force a pass. Verify browser flows in both languages and inspect the actual public artifact before release. Checks do not guarantee unchanged rankings.

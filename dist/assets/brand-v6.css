@@ -1,0 +1,57 @@
+/* Emerald, fresh botanical accents and warm ivory. Etohcols only. */
+.refined{--green:#007c53;--deep:#16513b;--ink:#194d39;--paper:#fcfaf5;--line:#d5e3d7;--muted:#5d7466;background:var(--paper)}
+.refined .utility{background:#dcedd9;color:#245d43}
+.refined .site-header{background:#fffefaF5;border-bottom-color:#d2dfd2}
+.refined .btn,.refined .line-float{background:#007c53;border-color:#007c53}
+.refined .btn:hover,.refined .line-float:hover{background:#006343}
+.refined .btn-outline{background:transparent;color:#16513b;border-color:#86aa92}
+.refined .btn-outline:hover{background:#e4f0dd}
+.refined .filter.active{background:#007c53}
+.refined .closing,.refined .help-banner,.refined .bulk-link{background:#e4efdb}
+.refined .footer{background:#f0f4e9;border-top-color:#cbdcbf}
+.refined .cart-link span{background:#dcebcf;color:#16513b}
+.refined .new-pack-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.refined .new-pack>div:last-child{display:block}
+.refined .new-pack h3{font-size:25px;margin-bottom:8px}
+.refined .new-pack>div>span{display:block;font-size:10px}
+.refined .pack-space{padding-inline:4px}
+.refined .new-pack .pack-kind{display:block;font-size:11px;letter-spacing:.03em;color:#52735f;margin-bottom:8px}
+.refined .original-pack img,.refined .detail-product-photo img,.refined .actual-gallon{mix-blend-mode:normal}
+.refined .detail-spec{background:linear-gradient(140deg,#f3f5e9,#e0edda)}
+.home-studio{background:#fcfaf5}
+#home-v3{--v3-ink:#194d39;--v3-green:#007c53;--v3-muted:#61776a;--v3-line:#d2dfd1;--v3-paper:#fcfaf5}
+#home-v3 h2 em{color:#42855b}
+#home-v3 .v3-eyebrow{color:#27684b}
+#home-v3 .v3-eyebrow:before{background:#00865a}
+#home-v3 .v3-button{background:#007c53;border-color:#007c53;color:white;box-shadow:0 5px 15px #075d3610}
+#home-v3 .v3-button:hover{background:#006343;border-color:#006343}
+#home-v3 .v3-button.v3-outline{background:#fffdf77a;border-color:#7fa78c;color:#194f38;box-shadow:none}
+#home-v3 .v3-button.v3-outline:hover{background:#e5f0d9}
+.v5-hero{background:#edf3e4}
+.v5-factory-scene>img{filter:saturate(1.12) contrast(1.025)}
+.v5-hero-wash{background:linear-gradient(90deg,#fcfaf4ff 0%,#fcfaf4f2 21%,#fcfaf4bb 34%,#fcfaf422 51%,transparent 67%),linear-gradient(0deg,#e5eedb 0%,#e5eedb00 38%)}
+#home-v3 .v5-hero h1{color:#174f37}
+#home-v3 .v5-hero h1 em{color:#008457}
+.v5-hero-content>p{color:#49694f!important}
+.v5-route-bar{background:#fffef8f5;border-top:3px solid #b6d780;box-shadow:0 12px 34px #255c3614}
+.v5-route-bar>a:hover{background:#eef5df}
+.v3-route-no{color:#527c43}
+.v3-route-bar b{border-color:#bdd5aa;color:#237744;background:#f1f6e8}
+#home-product-finder{background:#f0f4e4;border-color:#d7e3c9}
+.v3-pharmol{background:#edf2e4}
+.v3-etoh{background:#ecf3e9}
+.v3-etoh-image{background:radial-gradient(ellipse at 50% 60%,#d3e8cd,#eaf2e5 72%)}
+.v3-quality{background:#e1edcf;border-block:1px solid #ceddb9}
+.v3-certificates>a{background:#fcfcf6;border-color:#cdddbd}
+.v3-document-links>a{border-color:#b8cda7}
+.v3-pack-visual{background:radial-gradient(ellipse at 50% 60%,#dcebd3,#f1f5e6 72%)}
+.v3-pack-watermark{color:#c6d8bd}
+.v3-size-options button.is-selected{background:#007c53;color:#fff;border-color:#007c53}
+.v3-size-options button:hover{border-color:#008457}
+.v3-size-options button[data-pack-size="1000L"] strong{font-size:22px;letter-spacing:-1px}
+.v3-bulk-note{display:block;margin-top:18px;font-size:11px;color:#26714e;text-decoration:underline;text-underline-offset:4px}
+.v3-delivery{background:#e6efdc}
+.v3-delivery:before{background:linear-gradient(90deg,#e6efdc 0%,#e6efdcff 31%,#e6efdcb8 48%,#e6efdc00 72%)}
+@media(max-width:1150px){.refined .new-pack-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.v5-hero-wash{background:linear-gradient(90deg,#fcfaf4ff 0%,#fcfaf4f5 24%,#fcfaf4b3 43%,#fcfaf400 73%),linear-gradient(0deg,#e5eedb,transparent 40%)}}
+@media(max-width:900px){.v5-factory-scene:after{background:linear-gradient(180deg,#edf3e4 0%,transparent 18%,transparent 85%,#edf3e4 100%)}}
+@media(max-width:600px){.refined .new-pack-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.refined .new-pack h3{font-size:24px}.refined .pack-space{height:210px}.v3-size-options button[data-pack-size="1000L"] strong{font-size:18px}.v3-delivery:before{background:linear-gradient(180deg,#e6efdc 0%,#e6efdc 50%,#e6efdc66 72%,#e6efdc00 90%)}.v5-route-bar strong{font-size:20px}.v3-bulk-note{font-size:11px;line-height:1.8}}

@@ -1,0 +1,704 @@
+{
+  "version": 1,
+  "preparedOn": "2026-11-19",
+  "status": "proposed-contract-not-production-approved",
+  "canonicalOrigin": "https://etohcols.com",
+  "scope": {
+    "oldSitemapUrls": 33,
+    "historicalInventoryComplete": false,
+    "trafficPerformanceVerified": false,
+    "notes": "33 URLs observed in the public sitemap. Expand using CMS exports, Search Console, backlinks, server logs and old media URLs before migration. No claim that all URLs rank."
+  },
+  "verification": {
+    "googleSiteVerification": [
+      "lTYETQQyk8TJYEc5qSL35Dzushv6rATEpLWjMX526Hs"
+    ],
+    "note": "Public verification value from old homepage. Preserve in production or document the replacement verification method and verify account access. This value alone does not prove access."
+  },
+  "releaseDecisions": [
+    {
+      "id": "complete-old-url-and-media-inventory",
+      "status": "pending",
+      "note": "Reconcile CMS, Search Console if available, server logs, backlinks, image/PDF URLs and any parameterized routes with this sitemap baseline."
+    },
+    {
+      "id": "utility-and-duplicate-archive-policy",
+      "status": "pending",
+      "note": "Decide 200/index, 200/noindex, relevant permanent redirect, or true 404/410 for review routes using actual content and search evidence; then update this contract and sitemap policy."
+    },
+    {
+      "id": "content-and-metadata-review",
+      "status": "pending",
+      "note": "Three original article bodies/H1 and other content were rewritten in the prototype. Check search intent, internal links, factual claims, supplier privacy and accurate product availability. Exact old metadata is a baseline, not permission to repeat inaccurate claims."
+    },
+    {
+      "id": "verification-and-measurement",
+      "status": "pending",
+      "note": "Verify owner-controlled Search Console access and retain its verification; find/setup valid GA4 and test quote/LINE/phone events separately from actual enquiries."
+    },
+    {
+      "id": "public-build-and-production-config",
+      "status": "pending",
+      "note": "Review public output and confidential files; implement actual production routes, redirects, sitemap, robots, HTTPS and validated structured data. Frontend prototype is not a production deployment package."
+    },
+    {
+      "id": "backup-dns-and-rollback",
+      "status": "pending",
+      "note": "Backup files/database/DNS records, retain mail records and old server, test candidate infrastructure, assign cutover/rollback owners and measurable rollback triggers."
+    }
+  ],
+  "urls": [
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/",
+      "path": "/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/",
+      "baseline": {
+        "title": "เอทานอล แอลกอฮอล์ คุณภาพเยี่ยม มีใบอนุญาตนำเข้าถูกกฎหมาย | Etohcols",
+        "description": "บริษัท อิโตะ คอลส์ จำกัดเป็นผู้นำเข้าและจัดจำหน่าย เอทานอล แอลกอฮอล์ ชั้นนำในประเทศไทย มีทั้ง แอลกอฮอล์แบบบริสุทธิ์ และ แอลกอฮอล์แปลงสภาพ",
+        "canonical": "https://etohcols.com/",
+        "h1": [
+          "Pharmol แบรนด์เอทิลแอลกอฮอล์ เพื่อเภสัชกรรม"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/about/",
+      "path": "/about/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/about/",
+      "baseline": {
+        "title": "เกี่ยวกับเรา - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/about/",
+        "h1": [
+          "เกี่ยวกับเรา"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/author/admin/",
+      "path": "/author/admin/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/author/admin/",
+      "baseline": {
+        "title": "admin, Author at ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/author/admin/",
+        "h1": [
+          "Author Archives: admin"
+        ]
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/blocks/button-1/",
+      "path": "/blocks/button-1/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/blocks/button-1/",
+      "baseline": {
+        "title": "",
+        "description": "",
+        "canonical": "",
+        "h1": []
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/blocks/button-2/",
+      "path": "/blocks/button-2/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/blocks/button-2/",
+      "baseline": {
+        "title": "",
+        "description": "",
+        "canonical": "",
+        "h1": []
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/blocks/footer/",
+      "path": "/blocks/footer/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/blocks/footer/",
+      "baseline": {
+        "title": "",
+        "description": "",
+        "canonical": "",
+        "h1": []
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/blog/",
+      "path": "/blog/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/blog/",
+      "baseline": {
+        "title": "บทความ - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/blog/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/category/ethanol-alcohol/",
+      "path": "/category/ethanol-alcohol/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/category/ethanol-alcohol/",
+      "baseline": {
+        "title": "ความรู้เอทานอล แอลกอฮอล์ Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/category/ethanol-alcohol/",
+        "h1": [
+          "Category Archives: ความรู้เอทานอล แอลกอฮอล์"
+        ]
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/contact/",
+      "path": "/contact/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/contact/",
+      "baseline": {
+        "title": "ติดต่อเรา - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/contact/",
+        "h1": [
+          "ติดต่อเรา"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/denatured-alcohol/",
+      "path": "/denatured-alcohol/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/denatured-alcohol/",
+      "baseline": {
+        "title": "แอลกอฮอล์แปลงสภาพ 95 เปอร์เซ็นต์ คุณภาพมาตรฐาน นำเข้าถูกกฎหมาย",
+        "description": "แอลกอฮอล์แปลงสภาพ คือ แอลกอฮอล์ที่มีการใส่สารเคมีตามเงื่อนไขของกรมสรรพสามิต จึงไม่ได้เหมาะสมสำหรับการผลิตสินค้าทุกประเภท เช่น ใช้ผสมยาไม่ได้",
+        "canonical": "https://etohcols.com/denatured-alcohol/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/ethyl-alcohol-vs-methyl-alcohol/",
+      "path": "/ethyl-alcohol-vs-methyl-alcohol/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/ethyl-alcohol-vs-methyl-alcohol/",
+      "baseline": {
+        "title": "แอลกอฮอล์ฆ่าเชื้อ ความต่างระหว่าง เอทิลแอลกอฮอล์ และ เมทิลแอลกอฮอล์",
+        "description": "แอลกอฮอล์ฆ่าเชื้อ ที่มีขายในท้องตลาดนั้นมีหลายเกรด มีทั้งแบบคุณภาพสูงและต่ำ ซึ่งถ้าเราไม่มีความรู้ เราก็อาจจะได้แอลกอฮอล์คุณภาพไม่ดีมาใช้ได้",
+        "canonical": "https://etohcols.com/ethyl-alcohol-vs-methyl-alcohol/",
+        "h1": [
+          "แอลกอฮอล์ฆ่าเชื้อ ความต่างระหว่าง เอทิลแอลกอฮอล์ และ เมทิลแอลกอฮอล์"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/faqs/",
+      "path": "/faqs/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/faqs/",
+      "baseline": {
+        "title": "คำถามที่พบบ่อย - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/faqs/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/featured_item/",
+      "path": "/featured_item/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/featured_item/",
+      "baseline": {
+        "title": "Portfolio Archive - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/featured_item/",
+        "h1": [
+          ""
+        ]
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/all/",
+      "path": "/product-category/all/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/all/",
+      "baseline": {
+        "title": "ทั้งหมด Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/all/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/beverage/",
+      "path": "/product-category/beverage/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/beverage/",
+      "baseline": {
+        "title": "เครื่องดื่ม Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/beverage/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/chemical/",
+      "path": "/product-category/chemical/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/chemical/",
+      "baseline": {
+        "title": "เคมีภัณฑ์และอื่นๆ Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/chemical/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/cosmetic/",
+      "path": "/product-category/cosmetic/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/cosmetic/",
+      "baseline": {
+        "title": "ผลิตภัณฑ์เครื่องสำอาง Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/cosmetic/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/food/",
+      "path": "/product-category/food/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/food/",
+      "baseline": {
+        "title": "อาหารและเครื่องปรุงรส Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/food/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/general/",
+      "path": "/product-category/general/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/general/",
+      "baseline": {
+        "title": "สำหรับบุคคลทั่วไป Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/general/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product-category/medical/",
+      "path": "/product-category/medical/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product-category/medical/",
+      "baseline": {
+        "title": "ยาและเวชภัณฑ์ Archives - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product-category/medical/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/etoh-70/",
+      "path": "/product/etoh-70/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/etoh-70/",
+      "baseline": {
+        "title": "Etoh 70 | อิโตะ 70 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/etoh-70/",
+        "h1": [
+          "Etoh 70 | อิโตะ  70"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/etoh-95/",
+      "path": "/product/etoh-95/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/etoh-95/",
+      "baseline": {
+        "title": "Etoh 95 | อิโตะ 95 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/etoh-95/",
+        "h1": [
+          "Etoh 95 | อิโตะ  95"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/etoh-96/",
+      "path": "/product/etoh-96/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/etoh-96/",
+      "baseline": {
+        "title": "Etoh 96 | อิโตะ 96 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/etoh-96/",
+        "h1": [
+          "Etoh 96 | อิโตะ  96"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/etoh-99-9/",
+      "path": "/product/etoh-99-9/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/etoh-99-9/",
+      "baseline": {
+        "title": "Etoh 99.9 | อิโตะ 99.9 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/etoh-99-9/",
+        "h1": [
+          "Etoh 99.9 | อิโตะ  99.9"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/pharmol-70/",
+      "path": "/product/pharmol-70/",
+      "observedStatus": 200,
+      "expectedStatus": 301,
+      "location": "/undenatured-alcohol/",
+      "canonical": "https://etohcols.com/undenatured-alcohol/",
+      "baseline": {
+        "title": "Pharmol 70 | ฟาร์มอล 70 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/pharmol-70/",
+        "h1": [
+          "Pharmol 70 | ฟาร์มอล 70"
+        ]
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Redirect inaccurate/retired PHARMOL 70 listing to relevant PHARMOL family; user confirmed formula unavailable."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/pharmol-95/",
+      "path": "/product/pharmol-95/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/pharmol-95/",
+      "baseline": {
+        "title": "Pharmol 95 | ฟาร์มอล 95 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/pharmol-95/",
+        "h1": [
+          "Pharmol 95 | ฟาร์มอล 95"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/pharmol-96/",
+      "path": "/product/pharmol-96/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/pharmol-96/",
+      "baseline": {
+        "title": "Pharmol 96 | ฟาร์มอล 96 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/pharmol-96/",
+        "h1": [
+          "Pharmol 96 | ฟาร์มอล 96"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/product/pharmol-99-9/",
+      "path": "/product/pharmol-99-9/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/product/pharmol-99-9/",
+      "baseline": {
+        "title": "Pharmol 99.9 | ฟาร์มอล 99.9 - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/product/pharmol-99-9/",
+        "h1": [
+          "Pharmol 99.9 | ฟาร์มอล 99.9"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/shop/",
+      "path": "/shop/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/shop/",
+      "baseline": {
+        "title": "สินค้า - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/shop/",
+        "h1": []
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/test/",
+      "path": "/test/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/test/",
+      "baseline": {
+        "title": "Test - ETOCHOLS",
+        "description": "",
+        "canonical": "https://etohcols.com/test/",
+        "h1": []
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Retain route in preview. Production indexing/content/consolidation decision required."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/undenatured-alcohol/",
+      "path": "/undenatured-alcohol/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/undenatured-alcohol/",
+      "baseline": {
+        "title": "เอทิล แอลกอฮอล์แบบบริสุทธิ์ 95 เปอร์เซ็นต์ คุณภาพมาตรฐาน นำเข้าถูกกฎหมาย",
+        "description": "แอลกอฮอล์แบบบริสุทธิ์ คือ ไม่มีการใส่สารเคมีลงในแอลกอฮอล์ สามารถนำไปใช้กับผลิตสินค้าได้ทุกประเภท เช่น อาหาร เครื่องดื่ม ยาเวชภัณฑ์",
+        "canonical": "https://etohcols.com/undenatured-alcohol/",
+        "h1": [
+          "Pharmol แบรนด์เอทิลแอลกอฮอล์ เพื่อเภสัชกรรม"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/what-is-ethanol-alcohol/",
+      "path": "/what-is-ethanol-alcohol/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/what-is-ethanol-alcohol/",
+      "baseline": {
+        "title": "เอทานอล แอลกอฮอล์ คืออะไร ใช้ทำประโยชน์อะไรได้บ้าง สินค้าที่ใช้เอทานอล",
+        "description": "เอทานอล แอลกอฮอล์ นั้น เรียกได้ว่าเป็นสารเคมีสารพัดประโยชน์ในชีวิตประจำวันของเรา ตั้งแต่การใช้งานในครัวเรือนทั่วไปจนไปถึงอุตสาหกรรมขนาดใหญ่ ๆ",
+        "canonical": "https://etohcols.com/what-is-ethanol-alcohol/",
+        "h1": [
+          "เอทานอล แอลกอฮอล์ คืออะไร ใช้ทำประโยชน์อะไรได้บ้าง สินค้าที่ใช้เอทานอล"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "old-sitemap",
+      "oldUrl": "https://etohcols.com/where-to-buy-ethanol/",
+      "path": "/where-to-buy-ethanol/",
+      "observedStatus": 200,
+      "expectedStatus": 200,
+      "location": null,
+      "canonical": "https://etohcols.com/where-to-buy-ethanol/",
+      "baseline": {
+        "title": "แอลกอฮอล์ เอทานอล ซื้อได้ที่ไหน แอลกอฮอล์บริสุทธิ์ 99.9% 96% คุณภาพดี",
+        "description": "แอลกอฮอล์ เอทานอล ซื้อได้ที่ไหน ในปัจจุบันการซื้อแอลกอฮอล์มาใช้ในชีวิตประจำวันนับว่าเป็นเรื่องง่ายมากๆ เพราะสามารถซื้อได้ทั้งตามร้านสะดวกซื้อ",
+        "canonical": "https://etohcols.com/where-to-buy-ethanol/",
+        "h1": [
+          "แอลกอฮอล์ เอทานอล ซื้อได้ที่ไหน"
+        ]
+      },
+      "indexing": "index",
+      "sitemapRequired": true,
+      "decision": "Keep the exact public URL and intent; content/metadata edits require factual and SEO review."
+    },
+    {
+      "source": "prototype-compatibility",
+      "oldUrl": null,
+      "path": "/product/pharmol-75/",
+      "observedStatus": null,
+      "expectedStatus": 301,
+      "location": "/undenatured-alcohol/",
+      "canonical": "https://etohcols.com/undenatured-alcohol/",
+      "baseline": {
+        "title": "",
+        "description": "",
+        "canonical": "",
+        "h1": []
+      },
+      "indexing": "review",
+      "sitemapRequired": false,
+      "decision": "Prototype-only retired route; not one of the 33 old sitemap URLs. User confirmed PHARMOL formula unavailable."
+    }
+  ],
+  "sources": [
+    "https://developers.google.com/search/docs/crawling-indexing/site-move-no-url-changes",
+    "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  ]
+}

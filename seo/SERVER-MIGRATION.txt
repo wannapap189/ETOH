@@ -1,0 +1,87 @@
+ETOHCOLS — ข้อกำหนดรักษา URL สำหรับทีมสร้างเว็บใหม่และย้ายเซิร์ฟเวอร์
+อัปเดต 19 พฤศจิกายน 2569 | ชุดส่งมอบ ETOH สำหรับ GitHub ส่วนตัว ยังไม่ได้ deploy หรือเปลี่ยน DNS
+
+1. เป้าหมายที่ทีมต้องส่งมอบ
+ใช้ https://etohcols.com และ paths เดิม แม้เปลี่ยน CMS/framework/hosting
+ตัวอย่าง https://etohcols.com/where-to-buy-ethanol/ ต้องยังเปิดบทความเรื่องเลือกซื้อได้โดยตรง
+DNS ชี้โดเมนไปเครื่องใหม่ แต่ไม่ได้สร้าง routes ให้ ต้องสร้าง routes และ redirect บนเครื่องใหม่ก่อน
+llms.txt เป็น brief สำหรับทีม/AI ไม่ใช่คำสั่งที่ Google หรือเซิร์ฟเวอร์นำไปสร้าง redirect ให้อัตโนมัติ
+
+2. ตาราง URL ที่ต้องใช้
+ดู migration-contract.json คู่กับ url-inventory.json ซึ่งเก็บหลักฐานเดิม ห้ามแก้ baseline เพื่อให้ตรวจผ่าน
+พบ 33 URL จาก sitemap เดิม: ต้นแบบคง 32 เป็น HTTP 200 และ 1 เป็น 301
+/product/pharmol-70/ → /undenatured-alcohol/ เพราะเจ้าของยืนยันว่าไม่มีสูตรนี้
+/product/pharmol-75/ เป็น redirect เพิ่มจากต้นแบบ ไม่ใช่หนึ่งใน 33 URL เดิม
+หน้า review ได้แก่ WordPress blocks/test/featured_item และ archive ซ้ำ ต้องตัดสินใจเรื่อง index/รวมหน้าเป็นราย URL
+อย่าลบหรือเปลี่ยน URL เหล่านี้โดยอัตโนมัติ และไม่จำเป็นต้องใส่ทุก utility URL ใน sitemap ใหม่
+
+3. เติมข้อมูลก่อนเปิดจริง
+ขอ backup ไฟล์/ฐานข้อมูล/สื่อ/SEO settings/redirects และ export รายการหน้าจาก WordPress เดิม
+ตรวจ Search Console ถ้าเข้าถึงได้, server logs, backlinks และ CMS เพิ่มเติม เพื่อพบหน้าที่ไม่มีใน sitemap
+รวม pagination/query parameters และ /wp-content/uploads/ ที่ยังมีผู้ใช้หรือลิงก์อ้างถึง
+33 URL เป็นฐานเริ่มต้น ไม่ใช่คำยืนยันว่าครบทุก URL ในอดีต หรือทุกหน้าติดอันดับ
+เก็บตัวเลขคำค้น/หน้า/คลิกก่อนเปิดเท่าที่มี แยกจำนวนผู้ติดต่อทาง LINE/โทรออกจาก organic sessions
+
+4. ข้อกำหนดด้าน URL และเนื้อหา
+- หน้าเดิมที่เก็บไว้ต้อง HTTP 200, เปิดตรง/refresh ได้ และมีเนื้อหาที่ตรงเรื่อง ไม่ใช่หน้าแรกหรือหน้าเปล่า
+- URL ที่ต้องเปลี่ยนใช้ server-side 301 ไปปลายทางที่เกี่ยวข้องโดยตรง หลีกเลี่ยง loop/หลายทอด
+- กฎ redirect ต้องอยู่บนเซิร์ฟเวอร์ใหม่ เก็บอย่างน้อย 1 ปี และต่อไปหากยังมีลิงก์ใช้
+- URL ที่ไม่มีจริงให้ 404/410 ตามกรณี ห้าม fallback หน้าแรกพร้อมสถานะ 200
+- ตรวจ HTTP/www/non-www/slash ให้รวมไป HTTPS canonical เดิม โดยไม่ทำ path/query ที่มีความหมายหาย
+- รูปและไฟล์เดิมที่อนุมัติให้สาธารณะต้องคง URL หรือ redirect รายไฟล์ เอกสารลับไม่ต้องนำกลับขึ้นเว็บ
+- รักษา title/description/canonical ที่ถูกต้องเป็นค่าเริ่มต้น หากแก้ให้บันทึกเหตุผล ไม่รักษาข้อมูลผิดเพื่อ SEO
+- ตรวจ H1 เนื้อหาหลัก ความตั้งใจของคำค้น internal links และภาพ บทความเดิมทั้ง 3 ในต้นแบบเขียน body/H1 ใหม่แล้ว
+- Product/organization schema ต้องตรงข้อมูลจริง ห้ามสมมติราคา stock ratings หรือใบรับรอง
+- สินค้า Etohcols คงอยู่โดเมนเดิม ไม่ย้ายไป MUKU โดยไม่มีเหตุผลรายหน้า
+
+5. แยก preview กับ production
+ต้นแบบปิด index ผ่าน meta robots, HTTP X-Robots-Tag และ robots.txt โดยตั้งใจ ให้คงไว้บน preview
+Production: หน้าที่อนุมัติให้ index ต้องไม่มี noindex ใน HTML/HTTP และไม่ถูก robots/firewall บล็อก
+Canonical ต้องเป็น URL สาธารณะจริง ไม่ใช่ localhost/staging
+สร้าง sitemap ใหม่จาก canonical HTTP 200 ที่อนุมัติให้ index ไม่ใช้ sitemap XML snapshot เดิม
+ไม่ใส่ redirect, noindex, utility ที่ยังไม่อนุมัติหรือหน้าภายในใน sitemap
+รักษา Google verification tag เดิมตาม contract หรือยืนยันวิธีใหม่สำเร็จก่อนเลิกใช้เดิม
+เข้าถึงบัญชี Search Console/GA4 ให้ได้จริง การมี verification tag ไม่ได้พิสูจน์สิทธิ์บัญชี
+ตั้ง events แยกกด LINE/โทร/ส่งคำขอ และแยกจากบทสนทนาหรือยอดขายจริง
+
+6. ทดสอบระบบใหม่ก่อนเปลี่ยน DNS
+รันจากโฟลเดอร์เว็บด้วย Node.js 20+:
+  node scripts/check-migration.mjs --base-url http://127.0.0.1:4186 --mode preview
+  node scripts/check-migration.mjs --base-url https://YOUR-CANDIDATE-HOST --mode production
+คำสั่งหลังเป็นตัวอย่าง ต้องแทนชื่อเซิร์ฟเวอร์จริงของทีม ไม่ใช่คำสั่ง deploy
+ทดสอบ production config ในระบบจำกัดการเข้าถึง หรือผูกโดเมนจริงกับ IP ใหม่เฉพาะเครื่องทดสอบ
+ห้ามปล่อย staging ที่เปิด index ให้สาธารณะเพื่อทำให้ check ผ่าน
+ต้นแบบปัจจุบันควรผ่าน preview และไม่ผ่าน production ห้ามปลดการป้องกันบนต้นแบบเพื่อเอาผลผ่าน
+ตรวจรายงาน failures/warnings และรายการ releaseDecisions ที่ pending พร้อมบันทึกหลักฐานตัดสินใจ
+HTTP checker ไม่ทดแทนการตรวจเนื้อหา, mobile/performance, media links, schema, robots ซับซ้อน,
+HTTPS/host variants, firewall/Googlebot, backend, ความลับใน build และสิทธิ์บัญชี Google
+
+7. ลำดับย้ายเซิร์ฟเวอร์
+หากแยกขั้นตอนได้ ให้ย้ายโฮสต์ด้วยเนื้อหาเดิมก่อนแล้วปรับดีไซน์ ลดการเปลี่ยนหลายอย่างพร้อมกัน
+หากจำเป็นต้องเปิดเว็บใหม่พร้อมย้ายเครื่อง ให้คงโดเมน/paths/เนื้อหาหลักและผ่านเกณฑ์ตรวจรับก่อน
+กำหนดผู้ดูแล DNS/ระบบ/เนื้อหา สำรองเว็บเดิมพร้อมวิธีย้อนกลับ บันทึก IP/DNS เดิมและวันเปลี่ยน
+กำหนดเงื่อนไขย้อนกลับ เช่น หน้าหลัก/ฟอร์มใช้ไม่ได้ หรือ 404/5xx จำนวนมากบน URL ที่ต้องเก็บ
+เตรียม HTTPS certificate และลด DNS TTL ล่วงหน้าตามแผนของผู้ดูแล DNS
+หากย้าย nameservers ให้ย้าย DNS records ที่ยังใช้งานทั้งหมด รวม MX/SPF/DKIM/DMARC และ verification
+หากเปลี่ยนเพียง A/AAAA/CNAME อย่าแก้ records อีเมลที่ไม่เกี่ยวข้อง; ตรวจ IPv4/IPv6 ด้วย
+เปลี่ยน DNS หลังผ่านการตรวจ เก็บเครื่องเก่าให้บริการระหว่าง propagation
+หากมีคำขอเข้าทั้งสองเครื่อง ต้องมีวิธีรวมข้อมูลไม่ให้ตกหล่น
+ตรวจ URL/redirects/ฟอร์ม/LINE/โทรบนโดเมนจริงซ้ำหลังเปลี่ยน และส่ง sitemap ใหม่ใน Search Console
+เปลี่ยน hosting แต่โดเมนเดิม ไม่ต้องใช้ Google Change of Address
+ติดตาม logs/404/5xx ทุกวันช่วงแรก และ clicks/impressions/landing pages/คำขอจริงเทียบฐานเดิม
+แนะนำติดตามใกล้ชิด 4–8 สัปดาห์แรก ไม่ตัดสินผล SEO จากยอด LINE เพียงอย่างเดียว
+ปิดเครื่องเก่าเมื่อยืนยันผู้ใช้และ Googlebot เข้าระบบใหม่ได้ และทราฟฟิกที่เครื่องเก่าหมดแล้ว
+คง backup ตามนโยบายทีม การคง URL ไม่รับประกันว่าอันดับจะไม่ผันผวน
+
+8. GitHub และไฟล์สาธารณะ
+ส่งผ่าน repository ส่วนตัวที่ผ่านการตรวจเนื้อหา ไม่อัปโหลดทั้ง project/archive บน D โดยอัตโนมัติ
+.gitignore ไม่ใช่การป้องกันข้อมูลลับ และไม่ได้กำหนดว่าไฟล์ใดจะถูก deploy
+ชุดส่งมอบนี้อ่าน content/legacy-content.json แทน seo/original-html ตอน render; ทีมต้องย้ายเนื้อหานี้เข้า CMS/build โดยคง URL เดิม
+ไม่ได้รวม archive/provenance หรือต้นฉบับเอกสารลับไว้ใน repository อย่านำกลับมาเป็นส่วนหนึ่งของเว็บสาธารณะ
+ห้าม serve source/seo/reports/ต้นฉบับเอกสาร และ /seo-audit/ หรือ /seo-inventory.csv ใน production
+เอกสารจริงต้องขอทีมงานเท่านั้น Static hosting จะไม่รับกฎปิด /assets/documents/ จาก server.mjs ให้อัตโนมัติ
+ตรวจ public artifact และ URL ที่เข้าถึงได้จริงก่อนเปิด ไม่ใช่ตรวจ source อย่างเดียว
+
+แหล่งอ้างอิงหลัก
+https://developers.google.com/search/docs/crawling-indexing/site-move-no-url-changes
+https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes

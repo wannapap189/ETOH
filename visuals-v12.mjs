@@ -11,6 +11,7 @@ const flavor=scene('food-flavor-workshop-v12','ผู้ผลิตกลิ่
 const printing=scene('printing-natural-v12','โรงพิมพ์และผู้ผลิตหมึก','ระบบหมึกเฟล็กโซหรือกราเวียร์บางสูตรใช้เอทานอล ต้องทดสอบกับเรซิน สี และตัวทำละลายร่วมของระบบจริง');
 const packaging=scene('print-packaging-shop-v12','งานพิมพ์ฉลากและบรรจุภัณฑ์','ชนิดวัสดุ งานพิมพ์ และข้อกำหนดสารตกค้างแตกต่างกัน ให้ประเมินสูตรหมึกและสารเคลือบก่อนเปลี่ยนวัตถุดิบ');
 const coating=scene('resin-coating-workshop-v12','ผู้ผลิตกาวและสารเคลือบ','ใช้ได้ในบางระบบที่ออกแบบให้รับเอทานอล ต้องตรวจการละลาย การแห้ง การยึดเกาะ และผลของสารแปลงสภาพ');
+const metalParts=scene('app-metal-parts-manufacturers-v19','โรงงานชิ้นส่วนโลหะและงานประกอบ','พิจารณาสำหรับกระบวนการทำความสะอาดชิ้นงานที่ยอมรับสูตรแปลงสภาพ โดยตรวจปริมาณน้ำ คราบตกค้าง และความเข้ากันได้กับวัสดุตามข้อกำหนดจริง');
 const chemical=scene('chemical-natural-v12','โรงงานผสมเคมีภัณฑ์','เลือกความเข้มข้นและองค์ประกอบตามสูตรการผลิต โดยเฉพาะงานที่ควบคุมปริมาณน้ำหรือสารตกค้าง');
 const glass=scene('glass-cleaning-natural-v12','ผู้ผลิตน้ำยาเช็ดกระจก','บางสูตรใช้เอทานอลเป็นตัวทำละลายร่วม ควรเทียบการแห้ง คราบหลังเช็ด กลิ่น และความเข้ากันได้กับพื้นผิว');
 const industrial=scene('industrial-cleaning-natural-v12','โรงงานและงานทำความสะอาดชิ้นงาน','ประเมินชนิดคราบ วัสดุ และวิธีทำงาน เพื่อเลือกสูตรที่ผ่านการทดสอบกับพื้นผิวจริง');
@@ -29,5 +30,5 @@ export const businessScenes={
 };
 export function productScenes(p){
  const ph=p.brand==='PHARMOL';
- return (ph?{'96':[chemical,quality,development],'95':[flavor,extraction,quality],'99.9':[quality,chemical,development]}:{'96':[perfume,formulation,glass],'95':[packaging,printing,coating],'99.9':[chemical,coating,surface],'70':[industrial,supply,surface],'75':[surface,glass,supply]})[p.percent];
+ return (ph?{'96':[chemical,quality,development],'95':[flavor,extraction,quality],'99.9':[quality,chemical,development]}:{'96':[perfume,formulation,glass],'95':[packaging,printing,coating],'99.9':[chemical,metalParts,surface],'70':[industrial,supply,surface],'75':[surface,glass,supply]})[p.percent];
 }

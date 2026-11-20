@@ -29,5 +29,5 @@ export const businessScenes={
 };
 export function productScenes(p){
  const ph=p.brand==='PHARMOL';
- return (ph?{'96':[perfume,formulation,development],'95':[flavor,extraction,quality],'99.9':[quality,formulation,chemical]}:{'96':[supply,glass,industrial],'95':[packaging,printing,coating],'99.9':[chemical,coating,surface],'70':[industrial,supply,surface],'75':[surface,glass,supply]})[p.percent];
+ return (ph?{'96':[chemical,quality,development],'95':[flavor,extraction,quality],'99.9':[quality,chemical,development]}:{'96':[perfume,formulation,glass],'95':[packaging,printing,coating],'99.9':[chemical,coating,surface],'70':[industrial,supply,surface],'75':[surface,glass,supply]})[p.percent];
 }

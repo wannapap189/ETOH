@@ -53,7 +53,7 @@ Versioned modules are still imported by the current renderer. Do not remove them
 
 ## Business rules to preserve
 
-- Commercial focus: ETOH denatured ethanol is the primary product family. Show PHARMOL only as a compact secondary availability option for formulations requiring undenatured ethanol, not as an equally promoted range. The mixed catalog keeps PHARMOL in a collapsible section; its direct category/product URLs stay available. Some perfume and cosmetic formulations can use denatured ethanol, but confirm the actual denaturant type/amount, specifications and formulation tests. Do not imply all ETOH SKUs are cosmetic grade or suitable for every fragrance.
+- Commercial focus: ETOH denatured ethanol is the primary product family. Show PHARMOL only as a compact secondary availability option for formulations requiring undenatured ethanol, not as an equally promoted range. The mixed catalog keeps PHARMOL in a collapsible section; its direct category/product URLs stay available. Some perfume and cosmetic formulations can use denatured ethanol, but confirm the actual denaturant type/amount, specifications and formulation tests. Do not imply all ETOH SKUs are cosmetic grade or suitable for every fragrance. Perfume commercial recommendations and imagery belong to ETOH, with ETOH 96% as the current starting candidate subject to actual denaturant/specification and formulation tests. Do not cross-sell PHARMOL for perfume in this catalog. This positioning does not mean that undenatured ethanol is inherently unsuitable for perfume.
 
 No public prices or payment checkout. PHARMOL is undenatured; ETOH is denatured. There are no PHARMOL 70% or 75% products. Concentration alone does not establish grade, certification or suitability for an application.
 

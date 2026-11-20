@@ -31,6 +31,7 @@
 - Use distinct visual subjects within each group. Business imagery is illustrative and must not be presented as evidence of actual customer sites or projects.
 - Actual certificates are available only from staff. Public pages explain document types using illustrations. Do not publish certificate originals, supplier/manufacturer identities, customer information or internal business plans.
 - MUKU remains a separate brand. Do not redirect Etohcols product or SEO pages to MUKU as part of this work.
+- The “รู้จักผลิตภัณฑ์ MUKU” buttons on the homepage and OEM page link to `https://www.mukuclean.com/` in a new tab, in both Thai and English. Retain the existing internal MUKU preview routes.
 
 ## Architecture and language
 

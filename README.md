@@ -53,6 +53,8 @@ Versioned modules are still imported by the current renderer. Do not remove them
 
 ## Business rules to preserve
 
+- Commercial focus: ETOH denatured ethanol is the primary product family. Show PHARMOL only as a compact secondary availability option for formulations requiring undenatured ethanol, not as an equally promoted range. The mixed catalog keeps PHARMOL in a collapsible section; its direct category/product URLs stay available. Some perfume and cosmetic formulations can use denatured ethanol, but confirm the actual denaturant type/amount, specifications and formulation tests. Do not imply all ETOH SKUs are cosmetic grade or suitable for every fragrance.
+
 No public prices or payment checkout. PHARMOL is undenatured; ETOH is denatured. There are no PHARMOL 70% or 75% products. Concentration alone does not establish grade, certification or suitability for an application.
 
 The 1 / 5 / 20 L range and repacking system are in preparation. Keep this visible alongside the small-pack options, not only in a distant note. The 1 / 5 L jerrycans are translucent white; 20 L jerrycans have white and black options; 200 L drums are blue plastic, IBCs are 1,000 L and tank containers are 20,000 L. Do not call an IBC an ISO tank. Samples are free; shipping is assessed by destination and confirmed before dispatch.

@@ -1,0 +1,79 @@
+/* ETOH is the primary product family; PHARMOL remains an accessible alternative. */
+.d31-family-section .v9-section-head { align-items: end; gap: 36px; }
+.d31-family-section .v9-section-head > p { max-width: 410px; font-size: 1rem; line-height: 1.75; }
+.d31-primary-family { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: stretch; overflow: hidden; background: #fff; border: 1px solid #cfddd5; border-radius: 4px; }
+.d31-primary-family > * { min-width: 0; }
+.d31-primary-copy { padding: 42px 46px; }
+.d31-family-kicker { display: block; color: #9b421e; font-family: Manrope, Arial, sans-serif; font-size: .875rem; font-weight: 600; line-height: 1.6; letter-spacing: .075em; }
+.d31-primary-copy h3 { margin: 14px 0 7px; color: #124c47; font-family: Manrope, Arial, sans-serif; font-size: clamp(2.75rem, 4vw, 3.75rem); font-weight: 600; line-height: 1.15; letter-spacing: -.035em; }
+.d31-primary-copy p { max-width: 650px; margin: 14px 0 0; color: #48635d; font-size: 1.0625rem; line-height: 1.75; }
+.d31-primary-copy .d31-primary-type { margin-top: 0; color: #124c47; font-size: 1.1875rem; font-weight: 500; }
+.d31-use-label { display: block; margin-top: 25px; color: #9b421e; font-size: .875rem; font-weight: 500; line-height: 1.65; }
+.d31-primary-copy .d31-family-use { margin-top: 7px; }
+.d31-strengths { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0; }
+.d31-strengths > span { display: inline-block; min-width: 64px; padding: 8px 12px; border: 1px solid #c8dcd0; background: #f1f6f1; color: #124c47; font-family: Manrope, Arial, sans-serif; font-size: 1.0625rem; font-weight: 600; line-height: 1.5; text-align: center; }
+.d31-primary-copy .d31-primary-link { display: inline-flex; justify-content: center; font-size: 1rem; min-height: 54px; padding: 14px 25px; }
+.d31-primary-copy .d31-document-line { margin-top: 17px; color: #506b61; font-family: Manrope, Arial, sans-serif; font-size: .875rem; font-weight: 500; line-height: 1.65; letter-spacing: .045em; }
+.d31-primary-image { display: flex; align-items: center; justify-content: center; padding: 34px; background: #e7efe8; }
+.d31-primary-image img { display: block; width: min(100%, 385px); height: 440px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 18px 16px #254c3720); }
+.d31-secondary-family { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 24px; margin-top: 20px; padding: 22px 26px; border: 1px solid #d5dfd8; background: #f7f9f6; border-radius: 3px; }
+.d31-secondary-family > img { width: 58px; height: 58px; object-fit: contain; mix-blend-mode: multiply; }
+.d31-secondary-family > div { min-width: 0; }
+.d31-secondary-family h3 { margin: 0 0 5px; color: #42615a; font-family: Manrope, Arial, sans-serif; font-size: 1.125rem; font-weight: 600; line-height: 1.4; letter-spacing: 0; }
+.d31-secondary-family p { margin: 0; color: #526a62; font-size: 1rem; line-height: 1.65; }
+.d31-secondary-family .d31-secondary-link { display: inline-block; padding-block: 7px; border-bottom: 1px solid #9ab1a6; color: #315b50; font-size: 1rem; font-weight: 500; line-height: 1.65; white-space: nowrap; text-decoration: none; }
+.d31-secondary-family .d31-secondary-link:hover { color: #a3441c; border-color: #a3441c; }
+.d31-family-section :is(a, button):focus-visible, .d31-secondary-catalog :is(a, button, summary):focus-visible { outline: 3px solid #b94c22; outline-offset: 4px; }
+.v10-category-nav a.d31-secondary-nav { align-self: center; padding: 8px 4px; margin-left: 14px; border: 0; border-bottom: 1px solid #a9beb1; background: transparent; color: #526b60; font-size: .9375rem; }
+.v10-category-nav a.d31-secondary-nav:hover { color: #a3441c; background: transparent; border-bottom-color: #a3441c; }
+.d31-secondary-catalog { margin-top: 26px; border: 1px solid #d2ded5; border-radius: 3px; background: #f7f9f5; }
+.d31-secondary-catalog > summary { padding: 22px 28px; color: #315b50; cursor: pointer; }
+.d31-secondary-catalog > summary::marker { color: #57766b; }
+.d31-secondary-catalog > summary > span { display: inline-block; max-width: calc(100% - 28px); vertical-align: middle; padding-left: 8px; }
+.d31-secondary-catalog > summary strong { display: block; font-size: 1.125rem; font-weight: 500; line-height: 1.65; }
+.d31-secondary-catalog > summary small { display: block; margin-top: 5px; color: #5b7166; font-size: .875rem; line-height: 1.65; }
+.d31-secondary-catalog > summary:hover { background: #eef3ed; }
+.d31-secondary-catalog[open] > summary { border-bottom: 1px solid #d2ded5; }
+.d31-secondary-catalog > .v10-catalog-group { padding: 28px; }
+.d31-secondary-catalog .v10-group-heading h2 { font-size: 1.5rem; line-height: 1.5; }
+.d31-secondary-catalog[hidden] { display: none !important; }
+html[lang="en"] .d31-family-section .v9-section-head h2 { line-height: 1.25; }
+@media (max-width: 1000px) {
+  .d31-primary-copy { padding: 34px; }
+  .d31-primary-image { padding: 26px; }
+  .d31-primary-image img { height: 370px; }
+  .d31-secondary-family { gap: 20px; padding: 22px; }
+}
+@media (max-width: 760px) {
+  .d31-family-section .v9-section-head { display: block; }
+  .d31-family-section .v9-section-head > p { max-width: 650px; margin-top: 18px; }
+  .d31-primary-family { grid-template-columns: minmax(0, 1fr); }
+  .d31-primary-copy { padding: 30px; }
+  .d31-primary-image { padding: 24px; }
+  .d31-primary-image img { height: 315px; width: 100%; }
+  .d31-secondary-family { grid-template-columns: 46px minmax(0, 1fr); gap: 13px 18px; }
+  .d31-secondary-family > img { width: 46px; height: 46px; }
+  .d31-secondary-family .d31-secondary-link { grid-column: 2; justify-self: start; }
+  .d31-secondary-catalog > summary { padding: 20px; }
+  .d31-secondary-catalog > .v10-catalog-group { padding: 22px; }
+}
+@media (max-width: 560px) {
+  .d31-primary-copy { padding: 27px 23px; }
+  .d31-primary-copy h3 { font-size: 2.75rem; }
+  .d31-primary-copy p { font-size: 1rem; }
+  .d31-primary-copy .d31-primary-type { font-size: 1.125rem; }
+  .d31-strengths { gap: 8px; margin-block: 22px; }
+  .d31-strengths > span { min-width: 60px; padding: 8px 10px; font-size: 1rem; }
+  .d31-primary-copy .d31-primary-link { width: 100%; }
+  .d31-primary-image img { height: 275px; }
+  .d31-secondary-family { padding: 20px; }
+  .d31-secondary-family h3 { font-size: 1.0625rem; }
+  .d31-secondary-family p { font-size: 1rem; }
+  .v10-category-nav a.d31-secondary-nav { width: auto; margin-left: 0; padding: 8px 0; justify-content: start; }
+  .d31-secondary-catalog > summary { padding: 18px 15px; }
+  .d31-secondary-catalog > summary strong { font-size: 1rem; }
+  .d31-secondary-catalog > .v10-catalog-group { padding: 20px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .d31-family-section *, .d31-secondary-catalog * { scroll-behavior: auto; transition: none !important; animation: none !important; }
+}

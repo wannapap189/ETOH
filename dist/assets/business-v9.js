@@ -54,8 +54,29 @@
     updateProduct();
   }
   const catalog=$('[data-catalog]');
-  if(catalog){function filter(){const search=$('#v9-search').value.toLowerCase().trim(),brand=$('#v9-brand-filter').value,percent=$('#v9-percent-filter').value;let shown=0;$$('.v9-catalog-card').forEach(card=>{const match=(!search||(card.dataset.search+' '+card.textContent).toLowerCase().includes(search))&&(!brand||card.dataset.brand===brand)&&(!percent||card.dataset.percent===percent);card.hidden=!match;if(match)shown++;});$$('[data-catalog-group]').forEach(group=>group.hidden=!$$('[data-brand]',group).some(card=>!card.hidden));
-      $('#v9-results').textContent=say(`${shown} รายการ`,`${shown} ${shown===1?'product':'products'}`);$('#v9-no-results').hidden=shown>0; if($('#v10-clear-filters')) $('#v10-clear-filters').hidden=!(search||brand||percent);}['#v9-search','#v9-brand-filter','#v9-percent-filter'].forEach(id=>$(id).addEventListener('input',filter));const resetFilters=()=>{['#v9-search','#v9-brand-filter','#v9-percent-filter'].forEach(id=>$(id).value='');filter();};$('#v10-clear-filters')?.addEventListener('click',resetFilters);$$('.v10-category-nav a').forEach(a=>a.addEventListener('click',resetFilters));}
+  if(catalog){
+    const secondary=$('[data-secondary-catalog]',catalog);
+    function filter(){
+      const search=$('#v9-search').value.toLowerCase().trim(),brand=$('#v9-brand-filter').value,percent=$('#v9-percent-filter').value;
+      let shown=0;
+      $$('.v9-catalog-card',catalog).forEach(card=>{const match=(!search||(card.dataset.search+' '+card.textContent).toLowerCase().includes(search))&&(!brand||card.dataset.brand===brand)&&(!percent||card.dataset.percent===percent);card.hidden=!match;if(match)shown++;});
+      $$('[data-catalog-group]',catalog).forEach(group=>group.hidden=!$$('.v9-catalog-card',group).some(card=>!card.hidden));
+      if(secondary){
+        secondary.hidden=!$$('.v9-catalog-card',secondary).some(card=>!card.hidden);
+        secondary.open=!secondary.hidden&&Boolean(search||brand==='PHARMOL'||percent);
+      }
+      $('#v9-results').textContent=say(`${shown} รายการ`,`${shown} ${shown===1?'product':'products'}`);
+      $('#v9-no-results').hidden=shown>0;
+      if($('#v10-clear-filters'))$('#v10-clear-filters').hidden=!(search||brand||percent);
+    }
+    ['#v9-search','#v9-brand-filter','#v9-percent-filter'].forEach(id=>$(id).addEventListener('input',filter));
+    const resetFilters=()=>{['#v9-search','#v9-brand-filter','#v9-percent-filter'].forEach(id=>$(id).value='');filter();};
+    const revealCategory=hash=>{const target=document.getElementById(hash.slice(1));const details=target?.closest('[data-secondary-catalog]');if(details){details.open=true;details.hidden=false;}return target;};
+    $('#v10-clear-filters')?.addEventListener('click',resetFilters);
+    $$('.v10-category-nav a').forEach(a=>a.addEventListener('click',()=>{resetFilters();revealCategory(new URL(a.href).hash);}));
+    window.addEventListener('hashchange',()=>{const category=document.getElementById(location.hash.slice(1));if(!category?.matches('[data-catalog-group]'))return;resetFilters();const target=revealCategory(location.hash);target.scrollIntoView();});
+    revealCategory(location.hash);
+  }
   function renderList(){
     const root=$('#v9-request-list');if(!root)return;
     if(!items.length){root.innerHTML=`<div class="v9-empty"><h2>${say('ยังไม่มีรายการขอราคา','Your quote list is empty')}</h2><p>${say('เลือกสินค้า ขนาด และจำนวนที่ต้องการ แล้วรวมรายการให้ทีมประเมิน','Select products, packaging sizes and quantities, then send the list for our team to review.')}</p><a class="v9-button" href="${localURL('/shop/')}">${say('เลือกสินค้า','Browse products')} <span aria-hidden="true">↗</span></a></div>`;return;}

@@ -307,7 +307,9 @@ html[lang="en"] .h25-home :is(.h25-section-head h2, .h25-brief-copy h2) { line-h
   .h25-home .v9-section { padding-block: 50px; }
   .h25-home .v9-eyebrow { font-size: .875rem; letter-spacing: .05em; margin-bottom: 17px; }
   .h25-home .h25-hero-grid { padding-block: 34px; gap: 28px; }
-  .h25-home .h25-hero-copy h1 { font-size: clamp(2.0625rem, 8.8vw, 2.75rem); line-height: 1.4; letter-spacing: -.025em; }
+  .h25-home .h25-hero-copy h1 { font-size: clamp(2.0625rem, 8.8vw, 2.75rem); line-height: 1.4; letter-spacing: -.025em; text-wrap: balance; }
+  .h25-home .h25-hero-copy h1 em { display: inline-block; max-width: 100%; text-wrap: balance; }
+  html[lang="th"] .h25-home .h25-title-phrase { white-space: nowrap; }
   .h25-home .h25-hero-copy .h25-lead { font-size: 1.125rem; margin-top: 20px; }
   .h25-home .h25-hero-copy .h25-description { font-size: 1rem; margin-top: 13px; }
   .h25-home .h25-hero-copy .h25-actions { margin-top: 23px; }

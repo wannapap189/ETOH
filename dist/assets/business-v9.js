@@ -77,7 +77,7 @@
     const desired=params.get('intent')==='trial'?'sample':params.get('intent');
     if(Object.hasOwn(help,desired))intent.value=desired;
     else if(locale.basePath==='/sample/')intent.value='sample';
-    for(const field of ['product','size','quantity','industry','note']){
+    for(const field of ['product','size','quantity','industry','note','province']){
       const value=params.get(field),el=form.elements.namedItem(field);if(!value||!el)continue;
       if(el instanceof HTMLSelectElement){if([...el.options].some(o=>o.value===value))el.value=value;else if(field==='product')form.elements.note.value=(say('สินค้า: ','Product: ')+value+'\n').slice(0,2000);}
       else if(field==='quantity'){if(validQuantity(Number(value)))el.value=value;}

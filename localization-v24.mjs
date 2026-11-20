@@ -4,7 +4,7 @@ import {businessApplications,applicationGroups} from './application-catalog-v17.
 const directory=new URL('./locales/en/',import.meta.url);
 const supported=new Set(JSON.parse(fs.readFileSync(new URL('routes.json',directory),'utf8')));
 const dictionary={};
-for(const file of ['translations-1.json','translations-2.json','translations-3.json','query-translations.json','overrides.json']){
+for(const file of ['translations-1.json','translations-2.json','translations-3.json','query-translations.json','overrides.json','home-v25.json']){
  const path=new URL(file,directory);
  if(fs.existsSync(path))Object.assign(dictionary,JSON.parse(fs.readFileSync(path,'utf8')));
 }

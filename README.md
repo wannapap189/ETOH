@@ -17,6 +17,7 @@ Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logist
 ## Current scope
 
 - Responsive green–orange design with light backgrounds, local fonts and packaged images.
+- Homepage v25 leads with established bulk-ethanol experience, product quality information and logistics capability, then shows how this foundation supports market expansion and buyer needs: direct access for smaller regional buyers, product selection, delivered costs, sample testing, delivery, documentation and repeat purchasing. OEM is a supporting service. A short brief carries the application, quantity notes and destination province into the quotation form without submitting a lead.
 - Eight catalog entries: PHARMOL 95%, 96%, 99.9%; ETOH 95%, 96%, 99.9%, with ETOH 70% and 75% marked as planned.
 - 52 business applications across 11 groups, including 29 entries in the small-business filter. Each has a detail page and purpose-specific imagery. The original eight industry categories remain available.
 - Server-rendered English for 105 supported routes, alongside the original Thai paths. The language switch retains the page, query and anchor.
@@ -28,6 +29,7 @@ Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logist
 | File or directory | Responsibility |
 | --- | --- |
 | `server.mjs` | Loopback preview server, assets and preview indexing protection |
+| `home-v25.mjs`, `dist/assets/home-v25.css` | Buyer-focused homepage, seven accessible support tabs and short quotation brief |
 | `etoh.mjs` | Top-level routing, retired-product redirects and localization wrapper |
 | `business-v9.mjs`, `content-v10.mjs` | Current main layouts, catalog, products, logistics and request forms |
 | `application-catalog-v17.mjs` | Combined business-application catalog; imports the application data, expansion and healthcare modules |

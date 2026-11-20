@@ -11,6 +11,7 @@
 - [HTTP migration checker](scripts/check-migration.mjs).
 - [Localization checker](scripts/check-localization-v24.mjs).
 - [Article SEO checker](scripts/check-article-seo-v30.mjs).
+- [Additional article checker](scripts/check-articles-v37.mjs): six new guides, bilingual discovery, references, images and structured data.
 - [Content and search-intent plan](seo/CONTENT-AND-SEARCH-PLAN.txt): public page roles and homepage sequence, without search-volume or ranking claims.
 
 ## Product and commercial truth
@@ -21,14 +22,15 @@
 - PHARMOL is the undenatured family: 95%, 96% and 99.9%. PHARMOL 70% and 75% are unavailable; do not recreate them.
 - ETOH is the denatured family: 70%, 75%, 95%, 96% and 99.9%, with formulation, specifications and availability confirmed per request. The owner confirmed 70% and 75% are offered; do not label these formulations as planned. Small-package readiness remains separate.
 - Confirm actual specifications, denaturants, grade, lot documents and application suitability. Neither a percentage nor a brand name establishes food, pharmaceutical, analytical or other specialized approval.
-- The 1 / 5 / 20 L range and repacking system are in preparation. Keep readiness visible alongside those options. Show 1 / 5 L as translucent white jerrycans, 20 L in white and black options, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
+- The owner has requested removing small-pack preparation-status notices from every public page, article and form in both languages. Do not restore the orange badges or equivalent warnings. Packaging, quantities and delivery remain subject to staff confirmation; this display change does not establish ready stock. Show 1 / 5 L as translucent white jerrycans, 20 L in white and black options, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
 - No public prices. `/cart/` and `/checkout/` support quotation requests, not payment or order confirmation. Samples are free, with shipping assessed by destination and confirmed before dispatch.
-- OEM is restricted to denatured ethyl alcohol, including 200 L packaging; never offer undenatured PHARMOL as OEM. This ethanol-type restriction also applies to MUKU OEM enquiries, without reclassifying the existing MUKU catalog. The 1 / 5 / 20 L range remains in preparation. OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
+- OEM is restricted to denatured ethyl alcohol, including 200 L packaging; never offer undenatured PHARMOL as OEM. This ethanol-type restriction also applies to MUKU OEM enquiries, without reclassifying the existing MUKU catalog. Packaging, quantities and schedules are confirmed per project. OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
 - The owner confirms OEM and stock support for BOTH Etohcols and MUKU. Stock support covers BOTH storage with scheduled release/dispatch AND planning, stock-balance monitoring and scheduled replenishment. Agree eligible items, duration, reporting, release/approval rules, costs and delivery before service. Do not infer live software dashboards, unlimited capacity, free storage, insurance coverage or no-stockout guarantees.
 
 ## User experience and content
 
 - Retain the readable green–orange visual system and responsive layout.
+- The knowledge hub contains twelve articles. The six added guides are `/ethanol-for-perfume/`, `/ethanol-spec-coa-sds/`, `/ethanol-total-delivered-cost/`, `/ethanol-packaging-guide/`, `/ethanol-storage-delivery/` and `/switch-ethanol-supplier/`, each with an `/en/` counterpart. Keep all six original URLs. Sources support technical claims; practical examples are hypothetical, not customer testimonials. Do not invent search volumes, savings, publication dates, authors or product approvals. New guides use a content-review date, not a production-publication date.
 - Lead homepage messaging with customer value: compare specifications, product prices and freight as a total delivered cost, then plan purchasing around actual usage and cash flow. Support this with quality information and trial samples. Do not promise the lowest price, a fixed saving, or guaranteed stock reductions.
 - Brand hierarchy: Etohcols is the core ethanol expertise and supply brand; PHARMOL and ETOH are product families. OEM extends this expertise as a supporting service, never the main identity of the homepage. `/oem/` describes scope and project assessment and uses `/quote/?intent=oem` for enquiries. Do not imply an owned factory, automatic certification, or readiness of every packaging size.
 - Homepage sequence: brand and assurances → product families → packaging → quality → logistics → seven buyer-support cases → business directory → knowledge articles → OEM → stock services → distributors → quotation brief → MUKU. Keep OEM and stock services as support for the main ethanol offering. The short quotation brief prepares information for the full request form and does not submit a lead.
@@ -42,7 +44,7 @@
 ## Architecture and language
 
 - Run with Node.js 20+: `node server.mjs`. No dependencies or build are required for the preview. It binds to loopback on port `4186` by default; the `PORT` environment variable can select another port.
-- `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs` and the targeted `applyArticleSeo()` from `article-seo-v30.mjs`.
+- `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs`, targeted `applyArticleSeo()` from `article-seo-v30.mjs` and `applyNewArticleSeo()` from `article-seo-v37.mjs`. The new article modules own both Thai text and exact English translations; `articles-v37.mjs` combines them. Keep structured data language-specific after HTML localization.
 - `application-catalog-v17.mjs` combines application data, expansion and healthcare modules. `applications-v17.mjs` renders the directory and detail pages.
 - Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 107 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
 - Language switching preserves page, query and anchor. Preserve canonical and `th`/`en`/`x-default` alternate relationships. Production still needs actual routing and sitemap configuration.
@@ -78,6 +80,7 @@
 node scripts/check.mjs
 node scripts/check-localization-v24.mjs
 node scripts/check-article-seo-v30.mjs
+node scripts/check-articles-v37.mjs
 node scripts/check-migration.mjs --base-url http://127.0.0.1:4186 --mode preview
 node scripts/check-migration.mjs --base-url https://YOUR-CANDIDATE-HOST --mode production
 ```

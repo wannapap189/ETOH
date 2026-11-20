@@ -9,7 +9,8 @@ assert.deepEqual(businessProducts.filter(p=>p.brand==='PHARMOL').map(p=>p.percen
 assert.deepEqual(businessProducts.filter(p=>p.brand==='ETOH').map(p=>p.percent),['70','75','95','96','99.9']);
 assert.deepEqual(businessProducts.filter(p=>p.planned).map(p=>p.sku),[]);
 const pages=['/blog/','/category/ethanol-alcohol/','/faqs/',...articles.map(a=>a.path)];
-const allowedSources=new Set(['www.cdc.gov','www.ttb.gov','www6.excise.go.th','cosmetic.fda.moph.go.th','lawelcs.excise.go.th','www.ema.europa.eu','pubchem.ncbi.nlm.nih.gov','eur-lex.europa.eu']);
+// Public technical references only; these hosts do not expose company certificates.
+const allowedSources=new Set(['www.cdc.gov','www.ttb.gov','www6.excise.go.th','cosmetic.fda.moph.go.th','lawelcs.excise.go.th','www.ema.europa.eu','pubchem.ncbi.nlm.nih.gov','eur-lex.europa.eu','www.osha.gov','cosmeticseurope.eu']);
 let anchors=0;
 for(const path of pages){
  const r=await fetch(base+path);assert.equal(r.status,200,path);assert.equal(r.headers.get('x-robots-tag'),'noindex, nofollow');const html=await r.text();

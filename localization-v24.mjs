@@ -1,10 +1,11 @@
 import fs from 'node:fs';
+import {newTranslationsV37} from './articles-v37.mjs';
 import {businessApplications,applicationGroups} from './application-catalog-v17.mjs';
 
 const directory=new URL('./locales/en/',import.meta.url);
 const supported=new Set(JSON.parse(fs.readFileSync(new URL('routes.json',directory),'utf8')));
-const dictionary={};
-for(const file of ['translations-1.json','translations-2.json','translations-3.json','query-translations.json','overrides.json','home-v25.json','oem-v26.json','stock-v27.json','packaging-v27.json','halal-v28.json','oem-scope-v29.json','etoh-range-v29.json','etoh-availability-articles-v29.json','article-seo-v30.json','home-story-v30.json','buyer-path-v30.json','brand-focus-v31.json','denatured-focus-v31.json','application-denatured-v31.json','perfume-products-v34.json','perfume-applications-v34.json','perfume-routing-v34.json','catalog-scenes-v35.json','catalog-scenes-v36.json']){
+const dictionary={...newTranslationsV37};
+for(const file of ['translations-1.json','translations-2.json','translations-3.json','query-translations.json','overrides.json','home-v25.json','oem-v26.json','stock-v27.json','packaging-v27.json','halal-v28.json','oem-scope-v29.json','etoh-range-v29.json','etoh-availability-articles-v29.json','article-seo-v30.json','home-story-v30.json','buyer-path-v30.json','brand-focus-v31.json','denatured-focus-v31.json','application-denatured-v31.json','perfume-products-v34.json','perfume-applications-v34.json','perfume-routing-v34.json','catalog-scenes-v35.json','catalog-scenes-v36.json','packaging-display-v38.json','availability-display-v38.json','public-packaging-v38.json']){
  const path=new URL(file,directory);
  if(fs.existsSync(path))Object.assign(dictionary,JSON.parse(fs.readFileSync(path,'utf8')));
 }

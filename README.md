@@ -20,8 +20,9 @@ Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logist
 - Homepage v25 follows this sequence: brand and assurances → product families → packaging → quality → logistics → buyer support → business directory → knowledge articles → OEM → stock services → distributors → quotation brief → MUKU. Etohcols remains the core ethanol brand; OEM and stock services support that role. The brief carries application, quantity notes and destination province into the quotation form without submitting a lead.
 - Eight catalog entries: PHARMOL 95%, 96%, 99.9%; ETOH 70%, 75%, 95%, 96% and 99.9%, with availability confirmed per request.
 - 52 business applications across 11 groups, including 29 entries in the small-business filter. Each has a detail page and purpose-specific imagery. The main business-navigation link targets `/applications/`; the original eight industry categories remain available at `/industries/`.
-- Server-rendered English for 107 supported routes, alongside the original Thai paths. The language switch retains the page, query and anchor.
-- OEM is available exclusively for denatured ethyl alcohol, including 200 L packaging; undenatured PHARMOL is excluded. The 1 / 5 / 20 L range remains in preparation. OEM is a supporting Etohcols service, introduced after core supply, quality and logistics on the homepage. `/oem/` explains the project-assessment process and links to the existing OEM enquiry intent. PHARMOL / ETOH remain product families; MUKU remains a separate brand.
+- Server-rendered English for 113 supported routes, alongside the original Thai paths. The language switch retains the page, query and anchor.
+- Twelve knowledge articles: six foundations plus six practical guides on perfume ethanol, SPEC/COA/SDS, delivered costs, packaging, storage/delivery and changing suppliers. Each new guide has six sections, a distinct image, examples, checklists and official or primary technical references, with Thai/English metadata and Article/BreadcrumbList data. The knowledge hub and related-reading links expose all articles; original article URLs remain unchanged.
+- OEM is available exclusively for denatured ethyl alcohol, including 200 L packaging; undenatured PHARMOL is excluded. Packaging, quantities and schedules are confirmed for each request. OEM is a supporting Etohcols service, introduced after core supply, quality and logistics on the homepage. `/oem/` explains the project-assessment process and links to the existing OEM enquiry intent. PHARMOL / ETOH remain product families; MUKU remains a separate brand.
 - Both Etohcols and MUKU offer OEM and stock support: storage with scheduled release/dispatch, plus stock planning, balance monitoring and replenishment cycles. `/stock-management/` explains scope and project-specific terms; its enquiry uses `intent=stock`. The local MUKU homepage and business page also introduce these services; MUKU service enquiries do not require an already-selected SKU or quantity.
 - Quotation list stored in browser localStorage. Forms prepare a copyable request for the user to send; they do not submit leads, reserve stock, take payments or create orders.
 - Quality pages explain document types and prominently feature available HALAL documentation, with product scope and validity checked by staff. Actual certificates are supplied by staff on request and are not public downloads.
@@ -40,6 +41,8 @@ Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logist
 | `application-catalog-v17.mjs` | Combined business-application catalog; imports the application data, expansion and healthcare modules |
 | `applications-v17.mjs` | Business directory, detail pages and homepage discovery |
 | `knowledge-v10.mjs`, `articles-v16.mjs` | Product/industry guidance and knowledge articles |
+| `articles-v37.mjs`, `articles-business-v37.mjs`, `articles-buying-v37.mjs`, `articles-quality-v37.mjs` | Six additional bilingual guides, source references, exact translations and related-reading map |
+| `article-seo-v37.mjs`, `scripts/check-articles-v37.mjs` | Metadata/schema and acceptance checks for the six additional guides |
 | `article-seo-v30.mjs` | Approved target-article metadata and language-specific Article/BreadcrumbList data, applied after localization |
 | `documents-v13.mjs`, `document-art-v14.mjs` | Public document explanations and illustrations |
 | `partners-v22.mjs` | Distributor recruitment content |
@@ -57,7 +60,7 @@ Versioned modules are still imported by the current renderer. Do not remove them
 
 No public prices or payment checkout. PHARMOL is undenatured; ETOH is denatured. There are no PHARMOL 70% or 75% products. Concentration alone does not establish grade, certification or suitability for an application.
 
-The 1 / 5 / 20 L range and repacking system are in preparation. Keep this visible alongside the small-pack options, not only in a distant note. The 1 / 5 L jerrycans are translucent white; 20 L jerrycans have white and black options; 200 L drums are blue plastic, IBCs are 1,000 L and tank containers are 20,000 L. Do not call an IBC an ISO tank. Samples are free; shipping is assessed by destination and confirmed before dispatch.
+The owner has requested removing small-pack preparation-status notices throughout all public pages, articles and forms, in both languages. Confirm packaging, quantities and delivery with staff; removing the notice does not establish immediate stock availability. The 1 / 5 L jerrycans are translucent white; 20 L jerrycans have white and black options; 200 L drums are blue plastic, IBCs are 1,000 L and tank containers are 20,000 L. Do not call an IBC an ISO tank. Samples are free; shipping is assessed by destination and confirmed before dispatch.
 
 Keep supplier/manufacturer identities, certificate originals, customer information and internal plans out of public pages and assets. Illustrative business scenes must not be presented as documented customer sites. MUKU is a separate brand and is outside the current Etohcols translation and migration scope.
 
@@ -69,6 +72,7 @@ From the repository root:
 node scripts/check.mjs
 node scripts/check-localization-v24.mjs
 node scripts/check-article-seo-v30.mjs
+node scripts/check-articles-v37.mjs
 node scripts/check-migration.mjs --base-url http://127.0.0.1:4186 --mode preview
 ```
 

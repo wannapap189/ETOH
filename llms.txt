@@ -29,6 +29,7 @@
 ## User experience and content
 
 - Retain the readable green–orange visual system and responsive layout.
+- Lead homepage messaging with customer value: compare specifications, product prices and freight as a total delivered cost, then plan purchasing around actual usage and cash flow. Support this with quality information and trial samples. Do not promise the lowest price, a fixed saving, or guaranteed stock reductions.
 - Brand hierarchy: Etohcols is the core ethanol expertise and supply brand; PHARMOL and ETOH are product families. OEM extends this expertise as a supporting service, never the main identity of the homepage. `/oem/` describes scope and project assessment and uses `/quote/?intent=oem` for enquiries. Do not imply an owned factory, automatic certification, or readiness of every packaging size.
 - Homepage sequence: brand and assurances → product families → packaging → quality → logistics → seven buyer-support cases → business directory → knowledge articles → OEM → stock services → distributors → quotation brief → MUKU. Keep OEM and stock services as support for the main ethanol offering. The short quotation brief prepares information for the full request form and does not submit a lead.
 - The main business-navigation link targets `/applications/`, which contains 52 business scenarios across 11 groups, with a small-business filter covering 29 entries. Preserve individual detail URLs and the original eight industry categories at `/industries/`.

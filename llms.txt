@@ -15,11 +15,11 @@
 
 - Etohcols supplies ethanol to businesses. Preserve the emphasis on product selection, quality information and coordinated delivery. Do not make importing the main marketing message.
 - PHARMOL is the undenatured family: 95%, 96% and 99.9%. PHARMOL 70% and 75% are unavailable; do not recreate them.
-- ETOH is the denatured family: 95%, 96% and 99.9%, plus planned 70% and 75% formulations. Planned does not mean ready for sale.
+- ETOH is the denatured family: 70%, 75%, 95%, 96% and 99.9%, with formulation, specifications and availability confirmed per request. The owner confirmed 70% and 75% are offered; do not label these formulations as planned. Small-package readiness remains separate.
 - Confirm actual specifications, denaturants, grade, lot documents and application suitability. Neither a percentage nor a brand name establishes food, pharmaceutical, analytical or other specialized approval.
 - The 1 / 5 / 20 L range and repacking system are in preparation. Show 1 / 5 L as translucent white jerrycans, 20 L in white and black options, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
 - No public prices. `/cart/` and `/checkout/` support quotation requests, not payment or order confirmation. Samples are free, with shipping assessed by destination and confirmed before dispatch.
-- OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
+- OEM is restricted to denatured ethyl alcohol, including 200 L packaging; never offer undenatured PHARMOL as OEM. This ethanol-type restriction also applies to MUKU OEM enquiries, without reclassifying the existing MUKU catalog. The 1 / 5 / 20 L range remains in preparation. OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
 - The owner confirms OEM and stock support for BOTH Etohcols and MUKU. Stock support covers BOTH storage with scheduled release/dispatch AND planning, stock-balance monitoring and scheduled replenishment. Agree eligible items, duration, reporting, release/approval rules, costs and delivery before service. Do not infer live software dashboards, unlimited capacity, free storage, insurance coverage or no-stockout guarantees.
 
 ## User experience and content

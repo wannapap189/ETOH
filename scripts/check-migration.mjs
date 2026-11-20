@@ -45,11 +45,12 @@ function attrs(tag) {
 }
 function textOnly(html) { return decode(html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '').replace(/<[^>]*>/g, '')).trim(); }
 function pageInfo(html) {
-  const metas = [...html.matchAll(/<meta\b[^>]*>/gi)].map(m => attrs(m[0]));
+  const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head\s*>/i)?.[1] ?? '';
+  const metas = [...head.matchAll(/<meta\b[^>]*>/gi)].map(m => attrs(m[0]));
   return {
-    titles: [...html.matchAll(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/gi)].map(m => decode(m[1]).trim()),
+    titles: [...head.matchAll(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/gi)].map(m => decode(m[1]).trim()),
     descriptions: metas.filter(m => m.name?.toLowerCase() === 'description').map(m => m.content ?? ''),
-    canonicals: [...html.matchAll(/<link\b[^>]*>/gi)].map(m => attrs(m[0])).filter(m => m.rel?.toLowerCase().split(/\s+/).includes('canonical')).map(m => m.href ?? ''),
+    canonicals: [...head.matchAll(/<link\b[^>]*>/gi)].map(m => attrs(m[0])).filter(m => m.rel?.toLowerCase().split(/\s+/).includes('canonical')).map(m => m.href ?? ''),
     robotMeta: metas.filter(m => ['robots', 'googlebot'].includes(m.name?.toLowerCase())).map(m => m.content ?? '').join(','),
     verification: metas.filter(m => m.name?.toLowerCase() === 'google-site-verification').map(m => m.content ?? ''),
     h1Count: [...html.matchAll(/<h1(?:\s|>)/gi)].length,
@@ -98,6 +99,13 @@ function validateContract(contract) {
     if (row.expectedStatus === 301 && (typeof row.location !== 'string' || !row.location.startsWith('/') || row.location.startsWith('//') || /[?#\\]/.test(row.location))) throw new Error('Redirect rows require an origin-relative destination.');
     if (row.expectedStatus === 200 && row.canonical !== contract.canonicalOrigin + row.path) throw new Error('Retained-page canonical must match its live origin and exact path.');
     if (row.sitemapRequired && (row.indexing !== 'index' || row.expectedStatus !== 200)) throw new Error('Only approved, retained 200 pages may require sitemap inclusion.');
+    if (Object.hasOwn(row, 'approvedMetadata')) {
+      const approved = row.approvedMetadata;
+      const fields = ['title', 'description', 'approvedOn', 'reason'];
+      if (row.expectedStatus !== 200 || !approved || typeof approved !== 'object' || Array.isArray(approved) || Object.keys(approved).length !== fields.length || fields.some(field => typeof approved[field] !== 'string' || !approved[field].trim())) throw new Error('Approved metadata requires only title, description, approvedOn and reason on a retained 200 page.');
+      const date = new Date(approved.approvedOn);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(approved.approvedOn) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== approved.approvedOn) throw new Error('Approved metadata requires a valid approval date.');
+    }
   }
   if (contract.verification.googleSiteVerification.some(t => typeof t !== 'string' || !t.trim())) throw new Error('Invalid verification token list.');
 }
@@ -162,8 +170,16 @@ async function run(config) {
     if (info.titles.length !== 1 || !info.titles[0]) fail('title-missing-or-duplicate', row.path);
     if (info.h1Count !== 1) fail('requires-exactly-one-h1', row.path);
     if (!info.bodyPresent) fail('body-content-missing', row.path);
-    if (row.baseline.title && info.titles[0] !== row.baseline.title) warn('baseline-title-changed', row.path);
-    if (row.baseline.description && (info.descriptions.length !== 1 || info.descriptions[0] !== row.baseline.description)) warn('baseline-description-changed', row.path);
+    if (row.approvedMetadata) {
+      const titleMatches = info.titles.length === 1 && info.titles[0] === row.approvedMetadata.title;
+      const descriptionMatches = info.descriptions.length === 1 && info.descriptions[0] === row.approvedMetadata.description;
+      record.approvedMetadataMatches = titleMatches && descriptionMatches;
+      if (!titleMatches) fail('approved-title-mismatch-or-duplicate', row.path);
+      if (!descriptionMatches) fail('approved-description-mismatch-or-duplicate', row.path);
+    } else {
+      if (row.baseline.title && info.titles[0] !== row.baseline.title) warn('baseline-title-changed', row.path);
+      if (row.baseline.description && (info.descriptions.length !== 1 || info.descriptions[0] !== row.baseline.description)) warn('baseline-description-changed', row.path);
+    }
     record.metaNoindex = hasNoindex(info.robotMeta);
     record.headerNoindex = hasNoindex(response.headers.get('x-robots-tag') ?? '');
     if (config.mode === 'preview' && (!record.metaNoindex || !record.headerNoindex)) fail('preview-indexing-protection-missing', row.path);
@@ -241,7 +257,7 @@ async function run(config) {
     checkedAt: new Date().toISOString(), mode: config.mode, baseOrigin: config.base, canonicalOrigin: contract.canonicalOrigin,
     passed: failures.length === 0, reviewRequired: warnings.length > 0, requestCount, limits, pages, sitemap, verification,
     failures, warnings,
-    limitations: ['Limited HTTP checks against the supplied origin; not a full crawl, privacy audit, or SEO retention guarantee.', 'Normal offsite hyperlinks and live canonical destinations are not fetched.', 'Existing verification markup does not prove account access or ownership.', 'Metadata differences require editorial review; no page content or production setting is changed.', 'Sitemap URL membership is checked; extra unlisted sitemap pages are not crawled.', 'No raw HTML, metadata text, or verification tokens are included in this report.']
+    limitations: ['Limited HTTP checks against the supplied origin; not a full crawl, privacy audit, or SEO retention guarantee.', 'Normal offsite hyperlinks and live canonical destinations are not fetched.', 'Existing verification markup does not prove account access or ownership.', 'Unapproved metadata differences require editorial review; approved metadata must match exactly. No page content or production setting is changed.', 'Sitemap URL membership is checked; extra unlisted sitemap pages are not crawled.', 'No raw HTML, metadata text, or verification tokens are included in this report.']
   };
   await fs.mkdir(path.dirname(config.report), {recursive: true});
   await fs.writeFile(config.report, JSON.stringify(report, null, 2) + '\n');

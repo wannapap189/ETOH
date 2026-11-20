@@ -30,6 +30,7 @@ llms.txt เป็น brief สำหรับทีม/AI ไม่ใช่ค
 - ตรวจ HTTP/www/non-www/slash ให้รวมไป HTTPS canonical เดิม โดยไม่ทำ path/query ที่มีความหมายหาย
 - รูปและไฟล์เดิมที่อนุมัติให้สาธารณะต้องคง URL หรือ redirect รายไฟล์ เอกสารลับไม่ต้องนำกลับขึ้นเว็บ
 - รักษา title/description/canonical ที่ถูกต้องเป็นค่าเริ่มต้น หากแก้ให้บันทึกเหตุผล ไม่รักษาข้อมูลผิดเพื่อ SEO
+- /what-is-ethanol-alcohol/ อนุมัติปรับ title/description เมื่อ 20 พฤศจิกายน 2569 โดยบันทึกค่าที่อนุมัติ วันที่ และเหตุผลใน approvedMetadata ของ migration-contract.json ตัวตรวจต้องเทียบค่าใหม่ตรงทุกตัว เก็บ url-inventory.json และ baseline ทุกแถวไว้เป็นหลักฐานเดิม ไม่เปลี่ยน URL/canonical หรือปลด noindex ของ preview ตามข้อยกเว้นนี้
 - ตรวจ H1 เนื้อหาหลัก ความตั้งใจของคำค้น internal links และภาพ บทความเดิมทั้ง 3 ในต้นแบบเขียน body/H1 ใหม่แล้ว
 - Product/organization schema ต้องตรงข้อมูลจริง ห้ามสมมติราคา stock ratings หรือใบรับรอง
 - สินค้า Etohcols คงอยู่โดเมนเดิม ไม่ย้ายไป MUKU โดยไม่มีเหตุผลรายหน้า

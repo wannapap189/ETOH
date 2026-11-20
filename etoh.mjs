@@ -1,4 +1,5 @@
 import {localizeResult} from './localization-v24.mjs';
+import {applyArticleSeo} from './article-seo-v30.mjs';
 import {renderBusinessV9} from './business-v9.mjs';
 import {industryPage,industriesPage,markets} from './expertise-v8.mjs';
 import {warehouseStage,logisticsPage} from './experience-v7.mjs';
@@ -67,5 +68,5 @@ return {...old,status:commerce||industry||url==='/industries/'||url==='/logistic
 export async function renderPage(url){
  const english=url==='/en/'||url.startsWith('/en/');
  const base=english?(url.slice(3)||'/'):url;
- return localizeResult(await renderThaiPage(base),base,english);
+ return applyArticleSeo(localizeResult(await renderThaiPage(base),base,english),base,english);
 }

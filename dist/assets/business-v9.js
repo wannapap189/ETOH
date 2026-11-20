@@ -95,6 +95,15 @@
     }
     const fromCart=params.get('cart')==='1'||locale.basePath==='/checkout/';
     if(fromCart){fillCartSummary();if(items.length){form.elements.product.value='หลายรายการ / สเปกเฉพาะ';for(const field of ['product','size','quantity'])form.elements[field].disabled=true;}}
+    const updateSizeReadiness=()=>{
+      const note=$('#v30-size-readiness');
+      if(!note)return;
+      const smallSizes=['1L','5L','20L'];
+      const hasSmallPack=fromCart?items.some(item=>smallSizes.includes(item.size)):smallSizes.includes(form.elements.size.value);
+      note.hidden=!hasSmallPack;
+      note.textContent=hasSmallPack?say("ขนาด 1 / 5 / 20 ลิตรอยู่ระหว่างเตรียมสินค้าและระบบแบ่งบรรจุ สามารถแจ้งความต้องการให้ทีมประเมินความพร้อมได้","The 1 / 5 / 20 L range and repacking system are in preparation. You can share your requirements so the team can assess availability."):'';
+    };
+    form.elements.size.addEventListener('change',updateSizeReadiness);updateSizeReadiness();
     intent.addEventListener('change',updateHelp);updateHelp();
     let message='';
     form.addEventListener('submit',e=>{

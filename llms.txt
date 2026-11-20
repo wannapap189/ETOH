@@ -10,6 +10,8 @@
 - [Original URL/metadata baseline](seo/url-inventory.json): preserve as evidence; do not rewrite it to make checks pass.
 - [HTTP migration checker](scripts/check-migration.mjs).
 - [Localization checker](scripts/check-localization-v24.mjs).
+- [Article SEO checker](scripts/check-article-seo-v30.mjs).
+- [Content and search-intent plan](seo/CONTENT-AND-SEARCH-PLAN.txt): public page roles and homepage sequence, without search-volume or ranking claims.
 
 ## Product and commercial truth
 
@@ -17,7 +19,7 @@
 - PHARMOL is the undenatured family: 95%, 96% and 99.9%. PHARMOL 70% and 75% are unavailable; do not recreate them.
 - ETOH is the denatured family: 70%, 75%, 95%, 96% and 99.9%, with formulation, specifications and availability confirmed per request. The owner confirmed 70% and 75% are offered; do not label these formulations as planned. Small-package readiness remains separate.
 - Confirm actual specifications, denaturants, grade, lot documents and application suitability. Neither a percentage nor a brand name establishes food, pharmaceutical, analytical or other specialized approval.
-- The 1 / 5 / 20 L range and repacking system are in preparation. Show 1 / 5 L as translucent white jerrycans, 20 L in white and black options, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
+- The 1 / 5 / 20 L range and repacking system are in preparation. Keep readiness visible alongside those options. Show 1 / 5 L as translucent white jerrycans, 20 L in white and black options, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
 - No public prices. `/cart/` and `/checkout/` support quotation requests, not payment or order confirmation. Samples are free, with shipping assessed by destination and confirmed before dispatch.
 - OEM is restricted to denatured ethyl alcohol, including 200 L packaging; never offer undenatured PHARMOL as OEM. This ethanol-type restriction also applies to MUKU OEM enquiries, without reclassifying the existing MUKU catalog. The 1 / 5 / 20 L range remains in preparation. OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
 - The owner confirms OEM and stock support for BOTH Etohcols and MUKU. Stock support covers BOTH storage with scheduled release/dispatch AND planning, stock-balance monitoring and scheduled replenishment. Agree eligible items, duration, reporting, release/approval rules, costs and delivery before service. Do not infer live software dashboards, unlimited capacity, free storage, insurance coverage or no-stockout guarantees.
@@ -26,8 +28,8 @@
 
 - Retain the readable green–orange visual system and responsive layout.
 - Brand hierarchy: Etohcols is the core ethanol expertise and supply brand; PHARMOL and ETOH are product families. OEM extends this expertise as a supporting service, never the main identity of the homepage. `/oem/` describes scope and project assessment and uses `/quote/?intent=oem` for enquiries. Do not imply an owned factory, automatic certification, or readiness of every packaging size.
-- The v25 homepage leads with established bulk-ethanol experience, quality information and logistics capability, then explains expansion to serve manufacturers, distributors and regional small businesses. Buyer support covers direct access, selection, delivered costs, testing before switching, destination planning, document requests and repeat purchasing. Keep OEM as an extension of ethanol expertise. The short quotation brief prepares information for the full request form and does not submit a lead.
-- `/applications/` contains 52 business scenarios across 11 groups, with a small-business filter covering 29 entries. Preserve individual detail URLs and the original eight industry categories.
+- Homepage sequence: brand and assurances → product families → packaging → quality → logistics → seven buyer-support cases → business directory → knowledge articles → OEM → stock services → distributors → quotation brief → MUKU. Keep OEM and stock services as support for the main ethanol offering. The short quotation brief prepares information for the full request form and does not submit a lead.
+- The main business-navigation link targets `/applications/`, which contains 52 business scenarios across 11 groups, with a small-business filter covering 29 entries. Preserve individual detail URLs and the original eight industry categories at `/industries/`.
 - Business guidance explains ethanol's role, concrete applications, selection checks and purchasing considerations. Product links are candidates for review, not automatic suitability endorsements. Inquiry-only cases must not receive inferred SKU recommendations.
 - Use distinct visual subjects within each group. Business imagery is illustrative and must not be presented as evidence of actual customer sites or projects.
 - Actual certificates are available only from staff. Public pages explain document types using illustrations. Highlight HALAL documentation without implying certification of every product, formulation or end use; staff must confirm covered items, scope and validity. Do not publish certificate originals, supplier/manufacturer identities, customer information or internal business plans.
@@ -37,12 +39,13 @@
 ## Architecture and language
 
 - Run with Node.js 20+: `node server.mjs`. No dependencies or build are required for the preview. It binds to loopback on port `4186` by default; the `PORT` environment variable can select another port.
-- `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs`.
+- `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs` and the targeted `applyArticleSeo()` from `article-seo-v30.mjs`.
 - `application-catalog-v17.mjs` combines application data, expansion and healthcare modules. `applications-v17.mjs` renders the directory and detail pages.
 - Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 107 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
 - Language switching preserves page, query and anchor. Preserve canonical and `th`/`en`/`x-default` alternate relationships. Production still needs actual routing and sitemap configuration.
 - Translate visible labels, metadata, alt text and dynamic interactions. Keep product IDs, explicit select values and the shared `etohcols-cart-v1` storage format stable. Preserve user-entered text in summaries.
-- New homepage copy is translated in `locales/en/home-v25.json`; update it alongside `home-v25.mjs`. The homepage stylesheet is loaded only on `/` and its English equivalent.
+- Homepage translations are in `locales/en/home-v25.json` and the newer story/knowledge-card entries in `locales/en/home-story-v30.json`; update them alongside `home-v25.mjs`. The homepage stylesheet is loaded only on `/` and its English equivalent.
+- `article-seo-v30.mjs` applies approved metadata and language-specific Article/BreadcrumbList JSON-LD to `/what-is-ethanol-alcohol/` and its English counterpart after localization. JSON-LD scripts are not automatically translated. Use the actual `dateModified: 2026-11-20` from the article's update record; omit unverified author and `datePublished`, and never generate a fresh modification date per request. Keep localized schema names and page URLs aligned with the visible page and canonical.
 - OEM copy and metadata are translated in `locales/en/oem-v26.json`; update it alongside `oem-v26.mjs`. The service stylesheet is loaded only on the homepage and `/oem/`, including their English equivalents.
 - Stock copy and metadata are in `stock-v27.mjs` and `locales/en/stock-v27.json`; `/stock-management/` and its English equivalent link to `/quote/?intent=stock`. Packaging-copy corrections are in `locales/en/packaging-v27.json`.
 - The local MUKU preview shows OEM and both stock services on `/muku/` and `/muku/business/`. MUKU contact uses `intent=oem` or `intent=stock`, with optional stock `service=storage` / `service=planning`. Only service enquiries make product, size, quantity and destination optional; contact name and phone remain required. This does not update the externally hosted MUKU site.
@@ -54,6 +57,7 @@
 - The baseline covers 33 old sitemap URLs, not all historical URLs or verified rankings: 32 retained HTTP 200 pages and `/product/pharmol-70/` → `/undenatured-alcohol/` with HTTP 301. `/product/pharmol-75/` is an additional compatibility redirect.
 - Implement redirects on the new server, preserve relevant deep links and refreshes, and return genuine 404/410 responses for missing content. Do not send unknown paths to an HTTP 200 homepage.
 - Preserve accurate original metadata and article intent. The three original article bodies/H1 were revised in the prototype and need editorial/search-intent review. Do not repeat inaccurate legacy claims merely to match metadata.
+- `/what-is-ethanol-alcohol/` has an owner-approved title/description override in `seo/migration-contract.json` under `approvedMetadata` (approval date and reason included). Keep `seo/url-inventory.json` and contract `baseline` values immutable. Check the approved title and meta description exactly; this exception does not permit URL/canonical changes, blanket metadata exemptions or removal of preview noindex.
 - Expand the URL/media inventory from the CMS, logs, backlinks and owner-controlled Search Console data. Retain approved old media URLs or define explicit mappings. Confidential documents must not be restored publicly for SEO.
 - Preview has HTML and HTTP `noindex` plus a root robots block. Keep that protection on preview; create separate production configuration for approved indexable pages, canonical URLs, sitemaps and HTTPS.
 - Preserve Google verification or validate an owner-controlled replacement. A copied token does not prove account access. Separate LINE/phone clicks and submitted requests from actual enquiries or sales in measurement.
@@ -70,6 +74,7 @@
 ```sh
 node scripts/check.mjs
 node scripts/check-localization-v24.mjs
+node scripts/check-article-seo-v30.mjs
 node scripts/check-migration.mjs --base-url http://127.0.0.1:4186 --mode preview
 node scripts/check-migration.mjs --base-url https://YOUR-CANDIDATE-HOST --mode production
 ```

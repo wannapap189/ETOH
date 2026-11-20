@@ -1,0 +1,54 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {renderPage} from '../etoh.mjs';
+import {articleSeo} from '../article-seo-v30.mjs';
+import {decode} from '../localization-v24.mjs';
+
+const path='/what-is-ethanol-alcohol/';
+const origin='https://etohcols.com';
+const contract=JSON.parse(await fs.readFile(new URL('../seo/migration-contract.json',import.meta.url),'utf8'));
+const approval=contract.urls.find(row=>row.path===path).approvedMetadata;
+assert.equal(articleSeo.th.title,approval.title,'runtime title must match explicit migration approval');
+assert.equal(articleSeo.th.description,approval.description,'runtime description must match explicit migration approval');
+for(const english of [false,true]){
+ const route=(english?'/en':'')+path;
+ const result=await renderPage(route);
+ assert.equal(result.status,200,route);
+ const html=result.html;
+ const head=html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)[1];
+ const metadata=articleSeo[english?'en':'th'];
+ assert.equal(decode(head.match(/<title>(.*?)<\/title>/)[1]),metadata.title);
+ const descriptions=[...head.matchAll(/<meta name="description" content="([^"]*)">/g)];
+ assert.equal(descriptions.length,1);
+ assert.equal(decode(descriptions[0][1]),metadata.description);
+ assert.match(head,/<meta name="robots" content="noindex,nofollow">/);
+ assert.equal((head.match(/rel="canonical"/g)||[]).length,1);
+ assert.ok(head.includes('rel="canonical" href="'+origin+route+'"'));
+ for(const [lang,url] of [['th',path],['en','/en'+path],['x-default',path]])assert.ok(head.includes('hreflang="'+lang+'" href="'+origin+url+'"'));
+ const scripts=[...head.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+ assert.equal(scripts.length,1);
+ const data=JSON.parse(scripts[0][1]);
+ assert.equal(data['@context'],'https://schema.org');
+ assert.equal(data['@graph'].length,2);
+ const article=data['@graph'].find(item=>item['@type']==='Article');
+ const breadcrumb=data['@graph'].find(item=>item['@type']==='BreadcrumbList');
+ const h1=decode(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)[1].replace(/<[^>]*>/g,'')).trim();
+ assert.equal(article.headline,h1,'schema headline must match the visible language');
+ assert.equal(article.mainEntityOfPage['@id'],origin+route);
+ assert.equal(article.description,metadata.description);
+ assert.equal(article.inLanguage,english?'en':'th');
+ assert.equal(article.dateModified,'2026-11-20');
+ assert.equal(article.publisher.name,'Etohcols');
+ assert.ok(!article.author&&!article.datePublished,'do not invent an author or original publication date');
+ assert.equal(breadcrumb.itemListElement.length,3);
+ assert.deepEqual(breadcrumb.itemListElement.map(item=>item.position),[1,2,3]);
+ assert.equal(breadcrumb.itemListElement.at(-1).item,origin+route);
+ assert.equal(breadcrumb.itemListElement[1].item,origin+(english?'/en':'')+'/blog/');
+ assert.ok(article.citation.every(url=>url.startsWith('https://')));
+ for(const src of article.image){const asset=new URL(src).pathname;assert.ok(html.includes('src="'+asset+'"'));await fs.access(new URL('../dist'+asset,import.meta.url));}
+ if(english)assert.doesNotMatch(scripts[0][1],/[\u0E00-\u0E7F]/,'English schema must not contain untranslated Thai');
+ for(const anchor of ['names','terms','uses','spec','choose'])assert.ok(html.includes('id="'+anchor+'"'),'retain deep-link #'+anchor);
+ for(const linked of ['/ethyl-alcohol-vs-methyl-alcohol/','/denatured-vs-undenatured-alcohol/','/ethanol-concentration-guide/','/where-to-buy-ethanol/'])assert.ok(html.includes('href="'+(english?'/en':'')+linked+'"'));
+}
+assert.equal((await renderPage('/what-is-ethanol-alcohol-missing/')).status,404);
+console.log('Article SEO passed: Thai/English metadata, canonical, hreflang, schema language, source links, assets, anchors and preview protection.');

@@ -646,6 +646,12 @@
       "expectedStatus": 200,
       "location": null,
       "canonical": "https://etohcols.com/what-is-ethanol-alcohol/",
+      "approvedMetadata": {
+        "title": "เอทิลแอลกอฮอล์ (เอทานอล) คืออะไร? ชื่อเรียกและการใช้งาน | Etohcols",
+        "description": "รู้จักเอทิลแอลกอฮอล์ เอทานอล Ethanol และ EtOH เปรียบเทียบชนิดแปลงสภาพ–ไม่แปลงสภาพ เกรด ความเข้มข้น และการเลือกใช้ในธุรกิจ พร้อมแนวทางขอสเปกและเอกสาร",
+        "approvedOn": "2026-11-20",
+        "reason": "Owner-approved editorial SEO update; preserves the original URL and article intent while matching revised naming, specification and business-use guidance."
+      },
       "baseline": {
         "title": "เอทานอล แอลกอฮอล์ คืออะไร ใช้ทำประโยชน์อะไรได้บ้าง สินค้าที่ใช้เอทานอล",
         "description": "เอทานอล แอลกอฮอล์ นั้น เรียกได้ว่าเป็นสารเคมีสารพัดประโยชน์ในชีวิตประจำวันของเรา ตั้งแต่การใช้งานในครัวเรือนทั่วไปจนไปถึงอุตสาหกรรมขนาดใหญ่ ๆ",

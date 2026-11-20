@@ -28,7 +28,16 @@ export const businessScenes={
  'industrial-cleaning':[supply,glass,industrial],
  'distribution':[retail,perfume,supply]
 };
+// Catalog scenes are unique across cards; detailed application pages may share subjects.
+const botanicalCatalog=scene("app-botanical-extract-manufacturers-v19","ผู้ผลิตสารสกัดจากพืช","ประเมินสารที่ต้องการสกัด สัดส่วนเอทานอลและน้ำ รวมถึงเกรดและข้อกำหนดสารตกค้างของผลิตภัณฑ์ปลายทาง");
+const vanillaCatalog=scene("app-vanilla-spice-extract-producers-v19","ผู้ผลิตสารสกัดวานิลลาและเครื่องเทศ","สำหรับสูตรที่กำหนดชนิดไม่แปลงสภาพ ต้องตรวจเกรดและทดสอบกลิ่นรส ความใส และความคงตัวของสารสกัด");
+const waterControlledCatalog=scene("app-chemical-intermediate-manufacturers-v18","กระบวนการผลิตที่ควบคุมปริมาณน้ำ","สำหรับกระบวนการที่กำหนดชนิดไม่แปลงสภาพและควบคุมน้ำ ให้เทียบ SPEC เกณฑ์รับเข้า และผลทดสอบกับกระบวนการจริง");
+const labSupplyCatalog=scene("app-scientific-supply-distributors-v19","ผู้จัดจำหน่ายวัสดุและสารเคมีห้องปฏิบัติการ","เสนอสินค้าตามเกรดและเอกสารที่ลูกค้ากำหนด ต้องยืนยันคุณสมบัติเป็นรายรายการก่อนใช้กับงานวิเคราะห์หรือวิจัย");
+const automotiveCatalog=scene("app-automotive-cleaning-manufacturers-v18","ผู้ทดสอบสูตรดูแลพื้นผิวรถยนต์","ประเมินสูตรสำเร็จกับกระจก สี พลาสติก และยางตามวัสดุที่ระบุ ไม่ใช้ความเข้มข้นของวัตถุดิบเป็นข้อรับรองความเหมาะสมกับรถทุกชนิด");
+const cleaningLineCatalog=scene("app-glass-cleaner-manufacturers-v18","โรงงานพัฒนาน้ำยาทำความสะอาดกระจก","เทียบสูตรและผลทดสอบเรื่องคราบหลังเช็ด กลิ่น และความเข้ากันได้กับส่วนผสมจริงก่อนเลือกความเข้มข้นวัตถุดิบ");
+const equipmentCatalog=scene("app-makeup-tool-cleaner-brands-v19","ทดสอบสูตรกับวัสดุอุปกรณ์","ทดสอบความเข้ากันได้กับวัสดุ ขนแปรง กาว และผิวเคลือบตามข้อกำหนดของสูตรสำเร็จก่อนเลือกวัตถุดิบ");
+const cleaningRetailCatalog=scene("app-cleaning-supply-retailers-v18","วางแผนสินค้าและรอบเติมสำหรับร้านน้ำยา","แยกวัตถุดิบสำหรับผลิตกับน้ำยาพร้อมใช้ และยืนยันสูตรที่ต้องการก่อนวางแผนรายการสินค้าและรอบเติม");
 export function productScenes(p){
  const ph=p.brand==='PHARMOL';
- return (ph?{'96':[chemical,quality,development],'95':[flavor,extraction,quality],'99.9':[quality,chemical,development]}:{'96':[perfume,formulation,glass],'95':[packaging,printing,coating],'99.9':[chemical,metalParts,surface],'70':[industrial,supply,surface],'75':[surface,glass,supply]})[p.percent];
+ return (ph?{'96':[filling,development,retail],'95':[flavor,botanicalCatalog,vanillaCatalog],'99.9':[quality,waterControlledCatalog,labSupplyCatalog]}:{'96':[perfume,formulation,glass],'95':[packaging,printing,coating],'99.9':[chemical,metalParts,surface],'70':[industrial,supply,cleaningLineCatalog],'75':[automotiveCatalog,equipmentCatalog,cleaningRetailCatalog]})[p.percent];
 }

@@ -3,6 +3,7 @@ import {homeApplicationDiscovery} from './applications-v17.mjs';
 import {documentTeasers} from './documents-v13.mjs';
 import {partnerRecruitmentBanner} from './partners-v22.mjs';
 import {oemHomeSection} from './oem-v26.mjs';
+import {stockHomeSection} from './stock-v27.mjs';
 
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const quote=intent=>'/quote/?'+new URLSearchParams({intent});
@@ -50,6 +51,7 @@ export function homeV25(){return `<div class="h25-home">
  <section class="v9-section v9-wrap v9-quality h25-quality"><div>${eye('HELP YOUR TEAM MAKE THE DECISION')}<h2>ให้ฝ่ายจัดซื้อและฝ่ายคุณภาพ<br>พิจารณาจากข้อมูลเดียวกัน</h2><p>ลดการถามข้อมูลกลับไปกลับมา ด้วยเอกสารที่ระบุสินค้า เกรด และล็อตที่เกี่ยวข้อง ให้ทีมตรวจสอบประกอบการเลือกและตรวจรับ</p><div class="v9-doc-rows">${[['SPEC','เทียบข้อกำหนดก่อนเลือกสินค้า'],['COA','ตรวจผลวิเคราะห์ให้ตรงล็อต'],['SDS','ประเมินการใช้งานและการจัดเก็บ']].map(([code,label])=>`<a href="/quote/?intent=document&amp;note=${encodeURIComponent('ขอ '+code)}"><strong>${code}</strong><span>${label}</span></a>`).join('')}</div><a class="v9-text-link" href="/quality/">ดูประเภทเอกสารและความหมาย</a></div><div class="v9-certificates v13-home-documents">${documentTeasers()}</div></section>
  <section class="v9-logistics h25-delivery"><figure>${photo('logistics-loading-v8','การเตรียมโหลดถังพลาสติกและ IBC ขึ้นรถตู้ทึบ')}</figure><div class="v9-logistics-copy">${eye('YOUR DESTINATION MATTERS')}<h2>อยู่ต่างจังหวัด<br>ก็วางแผนจัดซื้อกับเราได้</h2><p>ไม่ต้องเริ่มจากการหารถเอง แจ้งสินค้า ปริมาณ และปลายทาง ให้ทีมช่วยประสานวิธีขนส่งและรายละเอียดรับสินค้า</p><ul class="h25-outcomes"><li>ขนาดบรรจุและวิธีส่งที่เหมาะกับรายการ</li><li>ค่าสินค้าและค่าจัดส่งสำหรับประเมินต้นทุนรวม</li><li>ช่วงส่งมอบและเงื่อนไขรับของที่ต้องยืนยันร่วมกัน</li></ul><div class="h25-actions">${button('ประเมินการส่งถึงจังหวัดของคุณ',quote('delivery'))}</div><small>ถัง / IBC ประสานรถ 6 / 10 ล้อตู้ทึบ · ตู้ Tank ประสานรถหัวลาก<br>วิธีส่งและค่าใช้จ่ายยืนยันตามสูตร ปริมาณ และพื้นที่ก่อนรับงาน</small></div></section>
  ${oemHomeSection()}
+ ${stockHomeSection()}
  ${partnerRecruitmentBanner()}
- <section class="v9-wrap h25-muku"><div>${eye('MUKU · PROFESSIONAL HYGIENE')}<h3>ต้องการผลิตภัณฑ์พร้อมใช้<br>แทนวัตถุดิบไปผลิตเอง?</h3><p>รู้จัก MUKU อีกแบรนด์สำหรับมือและพื้นผิวในธุรกิจ และสอบถามสินค้าที่ตรงกับลักษณะงานของคุณ</p></div><a class="h25-button h25-outline" href="https://www.mukuclean.com/" target="_blank" rel="noopener noreferrer">รู้จักผลิตภัณฑ์ MUKU</a></section>
+ <section class="v9-wrap h25-muku"><div>${eye('MUKU · PROFESSIONAL HYGIENE')}<h3>ต้องการผลิตภัณฑ์พร้อมใช้<br>แทนวัตถุดิบไปผลิตเอง?</h3><p>รู้จัก MUKU แบรนด์ผลิตภัณฑ์สำหรับมือและพื้นผิว พร้อมบริการ OEM และบริหารสต็อกที่ประเมินขอบเขตตามธุรกิจของคุณ</p></div><a class="h25-button h25-outline" href="https://www.mukuclean.com/" target="_blank" rel="noopener noreferrer">รู้จักผลิตภัณฑ์ MUKU</a></section>
  </div>`;}

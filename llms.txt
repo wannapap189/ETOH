@@ -17,9 +17,10 @@
 - PHARMOL is the undenatured family: 95%, 96% and 99.9%. PHARMOL 70% and 75% are unavailable; do not recreate them.
 - ETOH is the denatured family: 95%, 96% and 99.9%, plus planned 70% and 75% formulations. Planned does not mean ready for sale.
 - Confirm actual specifications, denaturants, grade, lot documents and application suitability. Neither a percentage nor a brand name establishes food, pharmaceutical, analytical or other specialized approval.
-- The 1 / 5 / 20 L range and repacking system are in preparation. Show 1 / 5 L as translucent jerrycans, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
+- The 1 / 5 / 20 L range and repacking system are in preparation. Show 1 / 5 L as translucent white jerrycans, 20 L in white and black options, 200 L as blue plastic drums, IBC as 1,000 L and tank-container supply as 20,000 L. IBC and ISO tank are different formats.
 - No public prices. `/cart/` and `/checkout/` support quotation requests, not payment or order confirmation. Samples are free, with shipping assessed by destination and confirmed before dispatch.
 - OEM and distributor enquiries are supported. Do not invent minimum orders, exclusivity, credit terms, lead times or certification promises.
+- The owner confirms OEM and stock support for BOTH Etohcols and MUKU. Stock support covers BOTH storage with scheduled release/dispatch AND planning, stock-balance monitoring and scheduled replenishment. Agree eligible items, duration, reporting, release/approval rules, costs and delivery before service. Do not infer live software dashboards, unlimited capacity, free storage, insurance coverage or no-stockout guarantees.
 
 ## User experience and content
 
@@ -29,7 +30,7 @@
 - `/applications/` contains 52 business scenarios across 11 groups, with a small-business filter covering 29 entries. Preserve individual detail URLs and the original eight industry categories.
 - Business guidance explains ethanol's role, concrete applications, selection checks and purchasing considerations. Product links are candidates for review, not automatic suitability endorsements. Inquiry-only cases must not receive inferred SKU recommendations.
 - Use distinct visual subjects within each group. Business imagery is illustrative and must not be presented as evidence of actual customer sites or projects.
-- Actual certificates are available only from staff. Public pages explain document types using illustrations. Do not publish certificate originals, supplier/manufacturer identities, customer information or internal business plans.
+- Actual certificates are available only from staff. Public pages explain document types using illustrations. Highlight HALAL documentation without implying certification of every product, formulation or end use; staff must confirm covered items, scope and validity. Do not publish certificate originals, supplier/manufacturer identities, customer information or internal business plans.
 - MUKU remains a separate brand. Do not redirect Etohcols product or SEO pages to MUKU as part of this work.
 - The “รู้จักผลิตภัณฑ์ MUKU” buttons on the homepage and OEM page link to `https://www.mukuclean.com/` in a new tab, in both Thai and English. Retain the existing internal MUKU preview routes.
 
@@ -38,11 +39,13 @@
 - Run with Node.js 20+: `node server.mjs`. No dependencies or build are required for the preview. It binds to loopback on port `4186` by default; the `PORT` environment variable can select another port.
 - `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs`.
 - `application-catalog-v17.mjs` combines application data, expansion and healthcare modules. `applications-v17.mjs` renders the directory and detail pages.
-- Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 106 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
+- Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 107 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
 - Language switching preserves page, query and anchor. Preserve canonical and `th`/`en`/`x-default` alternate relationships. Production still needs actual routing and sitemap configuration.
 - Translate visible labels, metadata, alt text and dynamic interactions. Keep product IDs, explicit select values and the shared `etohcols-cart-v1` storage format stable. Preserve user-entered text in summaries.
 - New homepage copy is translated in `locales/en/home-v25.json`; update it alongside `home-v25.mjs`. The homepage stylesheet is loaded only on `/` and its English equivalent.
 - OEM copy and metadata are translated in `locales/en/oem-v26.json`; update it alongside `oem-v26.mjs`. The service stylesheet is loaded only on the homepage and `/oem/`, including their English equivalents.
+- Stock copy and metadata are in `stock-v27.mjs` and `locales/en/stock-v27.json`; `/stock-management/` and its English equivalent link to `/quote/?intent=stock`. Packaging-copy corrections are in `locales/en/packaging-v27.json`.
+- The local MUKU preview shows OEM and both stock services on `/muku/` and `/muku/business/`. MUKU contact uses `intent=oem` or `intent=stock`, with optional stock `service=storage` / `service=planning`. Only service enquiries make product, size, quantity and destination optional; contact name and phone remain required. This does not update the externally hosted MUKU site.
 - Forms currently generate copyable requests in-browser only. There is no lead submission, CRM, inventory reservation, payment processing or order backend. Integrate and test the chosen backend before claiming those capabilities.
 
 ## Preserve URLs when changing servers

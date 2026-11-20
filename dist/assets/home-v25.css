@@ -39,6 +39,9 @@
   padding-block: 64px;
 }
 .h25-home .h25-hero-copy { min-width: 0; padding-block: 8px; }
+.h25-home .h25-brand-signature { display:flex; align-items:center; gap:22px; margin-bottom:26px; }
+.h25-home .h25-brand-signature img { width:112px; height:auto; flex:none; }
+.h25-home .h25-brand-signature span { border-left:1px solid #a4bcb2; padding-left:22px; font-family:Manrope,Arial,sans-serif; font-size:.875rem; line-height:1.8; letter-spacing:.045em; color:var(--h25-green); }
 .h25-home .h25-hero-copy h1 {
   max-width: 680px;
   font-size: clamp(2.5rem, 3.65vw, 3.5rem);
@@ -247,6 +250,11 @@
 .h25-home .h25-delivery .v9-logistics-copy li { font-size: 1rem; line-height: 1.65; }
 .h25-home .h25-pack-intro { max-width: 700px; font-size: 1.0625rem; line-height: 1.75; color: var(--h25-muted); }
 .h25-home .h25-small-note { display: block; margin-top: 18px; }
+.h25-home .h25-muku { display:flex; align-items:center; justify-content:space-between; gap:40px; padding-block:56px; border-top:1px solid var(--h25-line); }
+.h25-home .h25-muku > div { max-width:720px; }
+.h25-home .h25-muku h3 { font-size:1.625rem; line-height:1.5; margin-bottom:16px; }
+.h25-home .h25-muku p { font-size:1rem; }
+.h25-home .h25-muku > a { flex-shrink:0; }
 html[lang="en"] .h25-home .h25-hero-copy h1 { font-size: clamp(2.5rem, 3.6vw, 3.625rem); line-height: 1.18; letter-spacing: -.04em; }
 html[lang="en"] .h25-home .h25-hero-copy .h25-lead { line-height: 1.6; }
 html[lang="en"] .h25-home :is(.h25-section-head h2, .h25-brief-copy h2) { line-height: 1.22; letter-spacing: -.035em; }
@@ -290,6 +298,10 @@ html[lang="en"] .h25-home :is(.h25-section-head h2, .h25-brief-copy h2) { line-h
   html[lang="en"] .h25-home .h25-hero-copy h1 { font-size: 3rem; max-width: 720px; }
 }
 @media (max-width: 600px) {
+  .h25-home .h25-brand-signature { gap:15px; margin-bottom:24px; }
+  .h25-home .h25-brand-signature img { width:90px; }
+  .h25-home .h25-brand-signature span { padding-left:15px; letter-spacing:0; }
+  .h25-home .h25-muku { flex-direction:column; align-items:flex-start; gap:24px; padding-block:40px; }
   .h25-home { font-size: 1rem; }
   .h25-home .v9-wrap { width: calc(100% - 40px); }
   .h25-home .v9-section { padding-block: 50px; }

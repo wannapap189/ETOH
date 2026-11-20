@@ -12,7 +12,7 @@ node server.mjs
 
 Open [Thai homepage](http://127.0.0.1:4186/) or [English homepage](http://127.0.0.1:4186/en/). The preview listens only on loopback; the default port is `4186`. Set the `PORT` environment variable to use another port. `npm start` runs the same server.
 
-Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logistics/`, `/partner/`, `/cart/` and `/quote/`. Supported English pages use the same path prefixed with `/en/`.
+Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logistics/`, `/oem/`, `/partner/`, `/cart/` and `/quote/`. Supported English pages use the same path prefixed with `/en/`.
 
 ## Current scope
 
@@ -20,7 +20,8 @@ Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logist
 - Homepage v25 leads with established bulk-ethanol experience, product quality information and logistics capability, then shows how this foundation supports market expansion and buyer needs: direct access for smaller regional buyers, product selection, delivered costs, sample testing, delivery, documentation and repeat purchasing. OEM is a supporting service. A short brief carries the application, quantity notes and destination province into the quotation form without submitting a lead.
 - Eight catalog entries: PHARMOL 95%, 96%, 99.9%; ETOH 95%, 96%, 99.9%, with ETOH 70% and 75% marked as planned.
 - 52 business applications across 11 groups, including 29 entries in the small-business filter. Each has a detail page and purpose-specific imagery. The original eight industry categories remain available.
-- Server-rendered English for 105 supported routes, alongside the original Thai paths. The language switch retains the page, query and anchor.
+- Server-rendered English for 106 supported routes, alongside the original Thai paths. The language switch retains the page, query and anchor.
+- OEM is a supporting Etohcols service, introduced after core supply, quality and logistics on the homepage. `/oem/` explains the project-assessment process and links to the existing OEM enquiry intent. PHARMOL / ETOH remain product families; MUKU remains a separate brand.
 - Quotation list stored in browser localStorage. Forms prepare a copyable request for the user to send; they do not submit leads, reserve stock, take payments or create orders.
 - Quality pages explain document types. Actual certificates are supplied by staff on request and are not public downloads.
 
@@ -30,6 +31,7 @@ Useful routes: `/shop/`, `/applications/`, `/industries/`, `/quality/`, `/logist
 | --- | --- |
 | `server.mjs` | Loopback preview server, assets and preview indexing protection |
 | `home-v25.mjs`, `dist/assets/home-v25.css` | Buyer-focused homepage, seven accessible support tabs and short quotation brief |
+| `oem-v26.mjs`, `dist/assets/oem-v26.css` | Supporting OEM service page and homepage introduction |
 | `etoh.mjs` | Top-level routing, retired-product redirects and localization wrapper |
 | `business-v9.mjs`, `content-v10.mjs` | Current main layouts, catalog, products, logistics and request forms |
 | `application-catalog-v17.mjs` | Combined business-application catalog; imports the application data, expansion and healthcare modules |

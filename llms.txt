@@ -24,6 +24,7 @@
 ## User experience and content
 
 - Retain the readable green–orange visual system and responsive layout.
+- Brand hierarchy: Etohcols is the core ethanol expertise and supply brand; PHARMOL and ETOH are product families. OEM extends this expertise as a supporting service, never the main identity of the homepage. `/oem/` describes scope and project assessment and uses `/quote/?intent=oem` for enquiries. Do not imply an owned factory, automatic certification, or readiness of every packaging size.
 - The v25 homepage leads with established bulk-ethanol experience, quality information and logistics capability, then explains expansion to serve manufacturers, distributors and regional small businesses. Buyer support covers direct access, selection, delivered costs, testing before switching, destination planning, document requests and repeat purchasing. Keep OEM as an extension of ethanol expertise. The short quotation brief prepares information for the full request form and does not submit a lead.
 - `/applications/` contains 52 business scenarios across 11 groups, with a small-business filter covering 29 entries. Preserve individual detail URLs and the original eight industry categories.
 - Business guidance explains ethanol's role, concrete applications, selection checks and purchasing considerations. Product links are candidates for review, not automatic suitability endorsements. Inquiry-only cases must not receive inferred SKU recommendations.
@@ -36,10 +37,11 @@
 - Run with Node.js 20+: `node server.mjs`. No dependencies or build are required for the preview. It binds to loopback on port `4186` by default; the `PORT` environment variable can select another port.
 - `etoh.mjs` routes through the current `business-v9.mjs` implementation, with legacy fallback in `site.mjs`, then applies `localization-v24.mjs`.
 - `application-catalog-v17.mjs` combines application data, expansion and healthcare modules. `applications-v17.mjs` renders the directory and detail pages.
-- Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 105 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
+- Thai stays at existing paths. English uses `/en/` plus the equivalent path. `locales/en/routes.json` defines the 106 supported English routes. Use the same source layouts and reviewed dictionaries; do not replace this with browser auto-translation.
 - Language switching preserves page, query and anchor. Preserve canonical and `th`/`en`/`x-default` alternate relationships. Production still needs actual routing and sitemap configuration.
 - Translate visible labels, metadata, alt text and dynamic interactions. Keep product IDs, explicit select values and the shared `etohcols-cart-v1` storage format stable. Preserve user-entered text in summaries.
 - New homepage copy is translated in `locales/en/home-v25.json`; update it alongside `home-v25.mjs`. The homepage stylesheet is loaded only on `/` and its English equivalent.
+- OEM copy and metadata are translated in `locales/en/oem-v26.json`; update it alongside `oem-v26.mjs`. The service stylesheet is loaded only on the homepage and `/oem/`, including their English equivalents.
 - Forms currently generate copyable requests in-browser only. There is no lead submission, CRM, inventory reservation, payment processing or order backend. Integrate and test the chosen backend before claiming those capabilities.
 
 ## Preserve URLs when changing servers
